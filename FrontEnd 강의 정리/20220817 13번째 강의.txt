@@ -1,0 +1,49 @@
+2022-08-17
+
+single element css spinners-project.lukehaas.me
+
+flex와 inline flex의 차이
+
+codingfactory.net - css transition-timing-function
+
+animation-direction: alternate; - 왕복
+
+animation-delay
+
+gap
+
+tailwind cdn 사용하기
+-정해진 class명을 사용해야한다.
+ ex)<div class="flex">
+-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+ -translate는 '-'를 뜻한다. 
+-'z-10'  위치 지정 요소와, 그 자손 또는 하위 플렉스 아이템의 Z축 순서를 지정합니다. 
+ 더 큰 z-index 값을 가진 요소가 작은 값의 요소 위를 덮습니다.
+-수직정렬일 땐 justify 수평정렬일 땐 align-items
+-row는 넓이를 다 차지한다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

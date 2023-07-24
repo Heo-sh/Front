@@ -1,0 +1,326 @@
+2022-09-15
+
+error와 error처리에 대하여
+
+-------------------------------------
+
+app crashed -> error가 떠 실행이 불가능 하다.
+syntaxerror -> 문법에러
+-------------------------------------
+
+try catch 부문을 이용한 에러 처리
+
+-> try {
+    // 코드를 작성한다.
+    f(); 
+} catch (err) { <-error object
+    // 에러를 발생할 경우 catch 블록에서 처리한다.
+    console.error(err); <-전달받은 에러 객체를 console로 처리한다.
+} 
+
+이 경우, app crashed가 일어나지 않는다.
+
+try {
+    // syntaxerror(문법에러)는 compile 에러를 발생시킨다.
+    // compile : 컴파일러가 코드를 실행시키기 위해 읽는 단계
+    f());
+} catch (err) {
+    console.error(err);
+}
+
+try catch에서 컴파일에러는 처리할 수 없다.
+
+ps) compile : 컴파일(Compile)은 주어진 language로 작성된 컴퓨터 프로그램을 다른 언어의 동등한 프로그램으로 변환하는 프로세스입니다. 
+컴파일러는이 작업을 실행하는 소프트웨어입니다. 
+때로는이 작업을 "조립(assembling)"또는 "빌드(build)"라고도 합니다. 
+이 작업들은 보통 컴파일과 같은 것(예를 들면 바이너리 형식으로 패키지를 만드는 일) 이상의 작업을 수행합니다 .
+
+일반적으로 컴파일러는 C 또는 Java 와 같은 고급 언어를 CPU가 이해할 수 있는, 즉 어셈블리어와 같은 기계 언어로 변환합니다. 
+유사한 수준의 언어 사이에서 번역하는 일부 컴파일러를 트랜스파일러 또는 크로스 컴파일러 라고 합니다. 
+예를 들어 TypeScript에서 JavaScript로 컴파일합니다. 그것들은 생산성 도구로 간주됩니다.
+
+--------------------------------------------
+
+// error 객체의 종류
+// RangerError
+// ReferenceError
+// SyntaxError
+// TypeError
+// URIError
+
+-------------------------------------------
+
+// error 객체의 속성(property)
+// name
+// message
+// stack
+
+try {
+    f();
+} catch (err) {
+    console.error('name', err.name); // ReferenceError
+    console.error("message", err.message); // f is not defined
+    // console.error("stack", err.stack); // error에 대한 기타정보들
+}
+
+--------------------------------------------------
+
+RangerError
+
+try {
+    const pi = Math.PI;
+
+    console.log(pi);
+
+    // RangeError : 값이 정해진 범위를 벗어낫을 때 발생한다.
+    // toPrecision() 인자는 1에서 100 사이여야만 한다.
+    console.log(pi.toPrecision(200)); -> 100일 경우는 정상 출력
+
+} catch (err) {
+    console.error(err);
+}
+
+-----------------------------------------------------
+
+ReferenceError
+
+try {
+    // ReferenceError
+    // 존재하지 않는 변수를 참조(refer)했을 때 발생한다.
+    console.log(x);
+} catch (err) {
+    console.error(err);
+}
+
+
+------------------------------------------------------
+
+// SyntaxError
+
+try {
+    // SyntaxError (문법 에러)
+    // SyntaxError는 컴파일에러를 발생시킨다.
+    console.log(2022));
+} catch (err) {
+    console.error(err);
+}
+
+-----------------------------------------------------
+
+// TypeError
+
+try {
+    // TypeError (타입 에러)
+    // 값이 예상된 타입이 아닐 시 발생한다.
+
+    // setInterval(callback, ms)
+    // TypeError : callback은 함수여야한다. null을 전달받았다.
+    setInterval(null, 1000);
+} catch (err) {
+    console.error(err);
+}
+
+---------------------------------------------------------
+
+// URIError
+
+try {
+    // URIError : URI malformed (URI가 잘못 형성되었다.)
+    decodeURI("%");
+} catch (err) {
+    console.error(err);
+}
+
+URI와 URL의 차이 알아보기
+
+----------------------------------------------------------
+
+// 커스텀 에러객체로 커스텀 에러 발생시키기
+// try {
+//     const foo = "baz";
+
+//     if (foo !== "bar") {
+//         // customError object 생성
+//         const err = {
+//             name: "CustomError",
+//             message: "bar만 가능합니다."
+//         }
+//         // customeError object를 throw한다.
+//         throw err; <-중요하다.
+//     }
+
+// } catch (err) {
+//     console.error(err);
+// }
+
+-----------------------------------------------------------
+
+// try catch finally
+
+// try {
+//     console.log("foo");
+// } catch (err) {
+//     console.error(err);
+// } finally {
+//     // error 발생 유무와 상관없이 항상 실행된다.
+//     console.log(".");
+// }
+
+-----------------------------------------------------------
+
+// Q. 15살 소녀가 cu에서 술을 사려고 한다.
+// 커스텀에러를 발생시켜서 이 상황을 중지시켜야한다.
+
+try {
+    const girl = 15;
+
+    if (girl !== 20) {
+        const err = {
+            name: "No",
+            message: "only Adult"
+        }
+        throw err
+    };
+} catch (err) {
+    console.error(err);
+}
+
+// --------------------------------------
+// 강사풀이
+
+try {
+    const age = 15;
+
+    console.log("15살 소녀가 술을 사러 cu에 가고있다.");
+
+    if (age < 18) {
+        const err = {
+            name: "나이 에러",
+            message: "3년 뒤에 다시 오세요"
+        }
+        // throw 밑의 코드는 실행되지 않는다.
+        throw err;
+    }
+
+    console.log("술사기 성공!")
+    
+} catch (err) {
+    console.error(err)
+}
+
+--------------------------------------------------------
+
+// # class
+// 객체 생성을 위한 템플릿
+
+// class Cat { // 첫 글자는 대문자여야한다.
+
+//     // constructor (생성자)
+//     // 인스턴스를 생성하자마자 실행되는 특별한 메서드
+//     // constructor는 아무것도 return할 수 없다.
+//     // *주로 인스턴스 초기 속성을 설정하는 데 주로 사용된다.*
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+// }
+
+// // cat1은 object이다.
+// // cat1은 Cat의 인스턴스이다.
+// const cat1 = new Cat("kitty", 2);
+// // cat2는 object이다.
+// // cat2는 Cat의 인스턴스이다.
+// const cat2 = new Cat("Alfredo", 3);
+
+// console.log(cat1);
+// console.log(cat2);
+
+// console.log(cat1 instanceof Cat); // True
+// console.log(cat2 instanceof Cat); // True
+ 
+// class의 속성과 메서드
+
+// class MapoguCat {
+//     constructor(name) {
+//         this.name = name;
+//     }
+
+//     // MapoguCat의 속성 -> 다른 인스턴스를 주어도 변화 x
+//     home = "Mapo-gu";
+
+//     // MapoguCat의 메서드 -> 다른 인스턴스를 주어도 변화 x
+//     sound() {
+//         return "Meow"
+//     }
+// }
+
+// const cat1 = new MapoguCat("kitty");
+// const cat2 = new MapoguCat("muzy");
+
+// console.log(cat1);
+// // MapoguCat의 home 속성을 상속(inheritance)받았다.
+// console.log(cat1.home); // Mapo-gu
+// // MapoguCat의 sound 메서드를 상속(inheritance)받았다.
+// console.log(cat1.sound()); // Meow
+// console.log(cat2);
+// console.log(cat2.home); // Mapo-gu
+// console.log(cat2.sound()); // Meow
+
+// ------------------------------------------
+// Q. 삼산동에 살고있는 하얀색 말티즈를 생성하기 위한 템플릿을 작성해보세요.
+
+// class Dog {
+//     constructor(home, color, type) {
+//         this.home = home;
+//         this.color = color;
+//         this.type = type;
+//     }
+//     sound () {
+//         return "bow"
+//     }
+//     anger () {
+//         return "grrr"
+//     }
+// }
+
+// const doggy = new Dog("samsandong", "white", "Maltize");
+
+// console.log(doggy);
+// console.log(doggy.sound());
+// console.log(doggy.anger());
+
+// ----------------------------------------
+// 강사풀이
+
+// class SamsandongMaltese {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+
+//     // SamsandongMaltese의 속성
+//     home = "Samsan-dong"
+//     color = "white"
+    
+//     // SamsandongMaltese의 메서드 
+//     sound() {
+//         return "멍멍"
+//     }
+// }
+
+// const maltese = new SamsandongMaltese("snow",2);
+// console.log(maltese);
+// console.log(maltese.sound());
+
+
+
+
+
+
+
+
+
+
+
+
+

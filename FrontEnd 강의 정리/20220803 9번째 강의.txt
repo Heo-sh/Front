@@ -1,0 +1,126 @@
+20220803
+
+Google 홈페이지 만들어보기
+
+Google 등의 로고나 이미지 가져오기
+1. 페이지의 개발자환경으로 들어가 로고를 선택
+2. 로고의 개발코드가 담긴 사이트로 이동한다.
+3. 로고의 svg코드를 복사해서 붙여넣기 한다.
+
+------------------------------------------------------------------
+
+ARIA
+
+접근가능한 리치 인터넷 어플리케이션(Accessible Rich Internet Applications, ARIA)은 
+장애를 가진 사용자가 웹 콘텐츠와 웹 어플리케이션(특히 JavaScript를 사용하여 개발한 경우)에 
+더 쉽게 접근할 수 있는 방법을 정의하는 여러 특성을 말합니다.
+
+---------------------------------------------------------------------
+
+Table : 표를 만든다.
+예시
+<table>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">1</td>
+                <td>Mark</td>
+                <td>Larry</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <td scope="row">2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <td scope="row">3</td>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
+
+1.border-collapse
+2.caption
+3.tfoot
+4.overflow 이용해서 scrollbar 만들기
+5.table-layout과 colgroup
+
+
+예제 사이트
+-bootstrap tables
+-tailwind tables
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

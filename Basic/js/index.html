@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 2022-09-26 -->
+
+    <!-- -------------------------------------------- -->
+
+
+<!-- 
+    <h1>BOM and DoM</h1>
+    <p>BOM: Browser Object Model</p>
+    <p>DOM: Document Object Model</p>
+
+    <script>
+        // Browser Object
+        // console.log(window);
+
+        // window Object의 속성과 메서드는 웹개발에 필요한 툴키트이다.
+        // console.log(window.navigator.geolocation); // 접속한 browser의 위치를 알려준다.
+        // console.log(window.screen); // 접속한 유저의 디바이스의 화면 정보
+        // console.log(window.location); // 현재 접속한 웹페이지의 정보 (URL 등)
+        // console.log(window.history); // 유저의 웹브라우징에 관한 기록 등
+        // console.log(window.XMLHttpRequest); // AJAX 요청 (서버에 데이터를 요청하는 방법)
+
+        // Document Object
+        console.log(window.document) // HTML 문서(document object) 호출
+    </script> -->
+
+    <!-- <h1>DOM(HTML)에 접근하기</h1>
+
+    <script>
+        console.log(window.document);
+        console.log(window.document.title); // document object의 title
+        console.log(window.document.body);
+    </script> -->
+
+    <!-- <h1>DOM 선택자</h1>
+    <p>태그이름으로 선택하기</p>
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul>
+
+    <script>
+        // querySelector(태그이름) 태그이름으로 element를 선택한다.
+        const ul = document.querySelector("ul");
+        // querySelectorAll(태그이름) 태그이름을 가진 모든 element를 선택한다.
+        const li = document.querySelectorAll("li");
+
+        console.log(ul);
+        console.log(li); // NodeList: array와 비슷하지만 아니다. 즉 array의 속성과 메서드를 사용할 수 없으나, 몇 개는 가능하다.
+        console.log(li[0]); // index를 통해 특정한 element에 접근가능
+        console.log(li.length); // length를 통해 element의 갯수 파악가능
+    </script> -->
+
+    <!-- <h1>DOM 선택자</h1>
+    <p>id, class</p>
+
+    <ul>
+        <li id="foo" class="item">foo</li>
+        <li class="item">bar</li>
+        <li class="item">baz</li>
+    </ul>
+
+    <script>
+        // getElementById(id): 괄호 안의 id를 가진 element를 선택한다. id는 한 element 당 하나만 가질 수 있으며, 중복이 되지 않는다.
+        const foo = document.getElementById("foo");
+        console.log(foo);
+
+        // getElementsByClassName(class): class를 가진 element를 "모두" 선택한다. 개별선택을 할 시는 getElementsById를 사용하는 게 좋다.
+        const items = document.getElementsByClassName("item");
+
+        console.log(items); // HTMLCollection: NodeList랑 비슷하다고 봐도 무관
+        console.log(items[0]);
+        console.log(items.length);
+
+    </script> -->
+
+    <!-- <h1>DOM 선택자</h1>
+    <P>id, class로 선택하기 2</P>
+
+    <ul>
+        <li id="foo" class="item">foo</li>
+        <li class="item">bar</li>
+        <li class="item">baz</li>
+    </ul>
+
+    <script>
+        // querySelector(#id): id를 가진 element를 선택한다.
+        const foo = document.querySelector("#foo");
+        console.log(foo);
+
+        // querySelectorAll(.class): class를 가진 element를 모두 선택한다.
+        const items = document.querySelectorAll(".item");
+        console.log(items); // NodeList
+    </script> -->
+
+    <!-- -------------------------------------------- -->
+
+    <!-- 2022-09-28 -->
+
+    <!-- -------------------------------------------- -->
+
+
+    <!-- <h1>DOM 선택자</h1>
+    <p>자식 선택자 </p>
+
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+
+        console.log(ul);
+        console.log(ul.children); // HTMLCollection(3) [li, li, li]
+        console.log(ul.children[0]); // foo <- index를 통해 접근 가능
+        console.log(ul.children.length); // 3 <- item의 갯수 파악 가능
+
+        console.log(ul.firstElementChild); // foo
+        console.log(ul.lastElementChild); // baz
+    </script> -->
+
+    <!-- -------------------------------------------------- -->
+
+    <!-- <h1>Q. World Beer</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Origin</th>
+                <th>available</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="dutchBeer" class="beer">
+                <td>Heineken</td>
+                <td>Netherland</td>
+                <td>Yes</td>
+            </tr>
+            <tr id="irishBeer" class="beer">
+                <td>Guinness</td>
+                <td>Ireland</td>
+                <td>No</td>
+            </tr>
+            <tr id="koreanBeer" class="beer">
+                <td>Kloud</td>
+                <td>S.Korea</td>
+                <td>Yes</td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    <!-- <script>
+        // 1. beer클래스를 가진 행을 모두 선택해보세요.
+        // const beer = document.querySelectorAll(".beer"); // class가 beer인 element들을 모두 선택
+
+        // console.log(beer); // Nodelist
+
+        // 강사 풀이법
+
+        // const beers = window.document.getElementsByClassName("beer"); // window는 생략가능
+        // console.log(beers); // 복수 선택시 beers처럼 복수형태의 단어로 지정해주는 게 좋다. // HTMLCollection
+
+        // 2. 나라별 맥주 행을 선택해보세요.
+        // const country = document.querySelector("tbody"); // 태그 이름으로 전체 선택 후
+
+        // console.log(country.firstElementChild); // 자식 선택자로 개별 return
+        // console.log(country.children[1]);
+        // console.log(country.lastElementChild);
+
+        // 강사 풀이법
+
+        // const dutchBeer = document.getElementById("dutchBeer");
+        // const irishBeer = document.getElementById("irishBeer");
+        // const koreanBeer = document.getElementById("koreanBeer");
+
+        // console.log(dutchBeer);
+        // console.log(irishBeer);
+        // console.log(koreanBeer);
+
+        // const dutchBeer = document.querySelector("#dutchBeer");
+        // console.log(dutchBeer);
+
+        // 3. 아일랜드  맥주의 이용여부를 나타내는 셀을 선택해보세요.
+        const Irish = document.querySelector("#irishBeer"); // -> querySelector(#id): id를 가진 element를 선택한다.
+
+        // console.log(Irish);
+        console.log(Irish.lastElementChild); // -> 자식선택자로 풀이
+
+        // 강사 풀이법
+
+        // const irishBeer = document.getElementById("irishBeer");
+
+        // const isIrishBeerAvailable = irishBeer.children[2];
+
+        // console.log(isIrishBeerAvailable);
+
+        // const irishBeer = document.getElementById("irishBeer");
+        // const isIrishBeerAvailable = irishBeer.lastElementChild;
+
+        // console.log(isIrishBeerAvailable);
+    </script> -->
+
+<!-- ------------------------------------------------------- -->
+
+    <!-- <h1>DOM 속성(Property)</h1>
+    <p>innerHTML</p>
+
+    <UL>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </UL>
+
+    <script>
+        const ul = document.querySelector("ul");
+        console.log(ul);
+
+        // element.innerHTML: element 내부의 tree를 문자열로 return한다.
+        console.log(ul.innerHTML);
+        console.log(typeof ul.innerHTML);
+    </script> -->
+
+    <!-- <ul></ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+
+        ul.innerHTML = `
+            <li>foo</li>
+            <li>bar</li>
+            <li>baz</li>
+        ` // 백틱기호: 따옴표에서 안되는 줄바꿈이 가능하다. // JavaScript로 작성해 HTML로 return할 수 있다.
+    </script> -->
+
+    <!-- <h1>DOM 속성</h1>
+    <P>ClassList</P> -->
+    <!-- element를 classList의 형태로 return하는 속성 -->
+
+    <!-- <ul>
+        <li id="foo" class="class1">foo</li>
+        <li id="bar" class="class1 class2">bar</li>
+        <li id="baz">baz</li>
+    </ul>
+
+    <script>
+        const foo = document.getElementById("foo");
+        const ber = document.getElementById("bar");
+
+        console.log(foo.classList); // DOMTokenList
+        console.log(bar.classList); // DOMTokenList <- list의 형태 중 하나
+        console.log(bar.classList[0]); // class1 <- index를 통해 접근 가능
+        console.log(bar.classList[1]); // class2
+        console.log(foo.classList.length); // 1 
+        console.log(bar.classList.length); // 2
+    </script> -->
+
+    <!-- <h1>DOM 속성</h1>
+    <p>attribute: element의 기능을 확장시키는 속성(property)</p>
+    <p>href, id, alt, src, type 등이 attribute에 포함된다.</p>
+    
+    <ul>
+        <li><a href="" id="foo" href="Foo">Foo</a></li>
+        <li><img src="" alt="Bar" id="bar"></li>
+        <li><input type="text" id="baz" value="Baz"></li>
+    </ul>
+
+    <script>
+        const foo = document.getElementById("foo");
+        const bar = document.getElementById("bar");
+        const baz = document.getElementById("baz");
+        
+        console.log(foo.href); // href="Foo"에 접근한다.
+        console.log(bar.alt); // Bar
+        console.log(baz.value); // Baz
+
+    </script> -->
+
+    <!-- <p>정해져있는 속성이기에 변경은 가능해도 삭제는 불가하다.</p>
+    <p>Object의 관점에서 생각하면 좋다.</p>
+
+    <ul>
+        <li><a href="" id="foo">Foo</a></li>
+        <li><img src="" alt="" id="bar"></li>
+        <li><input type="text" id="baz"></li>
+    </ul>
+
+    <script>
+        const foo =document.getElementById("foo");
+        const bar =document.getElementById("bar");
+        const baz =document.getElementById("baz");
+
+        foo.href = "Foo";
+        bar.alt = "Bar";
+        baz.value = "Baz";
+    </script> -->
+
+    <!-- <style>
+        ul {
+            border: 1px solid;
+        }
+        li:first-child {
+            text-decoration: underline;
+        }
+    </style>
+
+    <h1>DOM 속성</h1>
+    <p>style: JavaScript에서 elemet의 style에 접근하는 속성</p>
+
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+        const li = document.querySelectorAll("li");
+
+        console.log(ul.style); // CSSStyleDeclaration
+        console.log(li[0].style); // CSSStyleDeclaration
+
+        console.log(ul.style.border); // JavaScript에서 css에 접근할 수 없다.
+        console.log(li[0].style.textDecoration); // JavaScript에서 css에 접근할 수 없다
+    </script> -->
+
+    <!-- <h1>DOM 속성</h1>
+    <p>style JavaScript로만 효과주기</p>
+
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+        const li = document.querySelectorAll("li");
+
+        console.log(ul.style);
+        console.log(li[0].style);
+
+        ul.style.border = "1px solid";
+        li[0].style.textDecoration = "underline";
+
+        console.log(ul.style.border); // 1px solid
+        console.log(li[0].style.textDecoration); // underline
+
+    </script> -->
+
+    <!-- <h1>DOM Method</h1>
+    <p>createElement, appendChild</p>
+
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+
+        // document.createElement(element): element(태그이름)를 만든다.
+        const li = document.createElement("li"); // 1. 새로운 list를 만든다.
+
+        // element.textContent: element태그 내의 text에 접근한다.
+        li.textContent = "baz"; // 2. 새로 만든 리스트에 text를 추가한다.
+
+        // element1.appendChild(element2): element2를 element1의 마지막 자식으로 추가한다.
+        ul.appendChild(li); // 3. 새로 만든 list를 ul이라는 element에 추가한다.
+
+    </script> -->
+
+<!-- ---------------------------------------------------------------- -->
+
+    <!-- <h1>Q. 반복문을 사용해서 다음 리스트를 완성해보세요</h1>
+    <p>createElement, appendChild를 이용하세요.</p> -->
+
+    <!-- <ul></ul> -->
+
+    <!-- <script>
+        const ul = document.querySelector("ul");
+        const arr = ["foo", "bar", "baz"];
+
+        // const foo = document.createElement("li");
+
+        // foo.textContent = "foo";
+
+        // ul.appendChild(foo);
+        
+        for (let i=0; i<arr.length; i++) {
+            const li = document.createElement("li");
+
+            li.textContent = arr[i];
+
+            ul.appendChild(li);
+        }
+
+        console.log(ul);
+    </script> -->
+
+    <!-- <script>
+        const ul = document.querySelector("ul");
+        const arr = ["foo", "bar", "baz"];
+
+        let i = 0;
+
+        while (i < arr.length) {
+            const li = document.createElement("li");
+
+            li.textContent = arr[i];
+
+            ul.appendChild(li);
+            i++
+        }
+
+    </script> -->
+
+<!-- ---------------------------------------------------------------- -->
+
+    <!-- <h1>DOM Method</h1>
+    <p>classList.add</p>
+
+    <style>
+        .border {
+            border: 1px solid;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+        const li = document.querySelectorAll("li");
+
+        console.log(ul.classList); // DOMTokenList
+        // element.classList.add(class): element의 DOMTokenList에 class를 추가한다.
+        ul.classList.add("border");
+        
+        li[0].classList.add("underline");
+
+    </script> -->
+
+    <!-- <style>
+        .border {
+            border: 1px solid;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+
+    <h1>DOM Method</h1>
+    <p>classList.remove</p>
+
+    <ul class="border">
+        <li class="underline">foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+        const li = document.querySelectorAll("li");
+
+        console.log(ul.classList);
+        console.log(li[0].classList);
+
+        ul.classList.remove("border"); // class 이름과 일치해야한다. 일치하지 않으면 적용 X
+        li[0].classList.remove("underline");
+
+    </script> -->
+
+<!-- ======================================================== -->
+
+<!-- 2022-09-30 -->
+
+<!-- ======================================================== -->
+
+    <!-- <h1>DOM Method</h1>
+    <p>getAttribute</p>
+
+    <ul>
+        <li><a href="Foo" id="foo"></a></li>
+        <li><img src="" alt="Bar" id="bar"></li>
+        <li><input type="text" name="" id="baz" value="Baz"></li>
+    </ul>
+
+    <script>
+        const foo = document.getElementById("foo");
+        const bar = document.getElementById("bar");
+        const baz = document.getElementById("baz");
+
+        // element.getAttribute(attribute): element의 attribute를 접근한다.
+        console.log(foo.getAttribute("href")); // Foo   
+        console.log(bar.getAttribute("alt")); // Bar
+        console.log(baz.getAttribute("value")); // Baz
+    </script> -->
+
+    <!-- <h1>DOM Method</h1>
+    <p>setAttribute</p>
+
+    <ul>
+        <li><a href="" id="foo">Foo</a></li>
+        <li><img src="" alt="" id="bar"></li>
+        <li><input type="text" name="" id="baz"></li>
+
+    </ul>
+
+    <script>
+        const foo = document.getElementById("foo");
+        const bar = document.getElementById("bar");
+        const baz = document.getElementById("baz");
+
+        // element.setAttribute(attribute, value): element의 attribute에 value를 할당한다.
+        foo.setAttribute("href", "#"); // 특수기호와 숫자도 value 값에 적용 가능
+        bar.setAttribute("alt", "Bar");
+        baz.setAttribute("value", "Baz");
+    </script> -->
+
+    <!-- <h1>Event</h1>
+    <p>User's action(유저의 행위)</p>
+
+    <button>Button</button>
+
+    <script>
+        const button = document.querySelector("button");
+
+        // element.addEventListener(event, callback): element에 event 발생 시 callback을 실행한다.
+        // event: click, keyup, scroll, submit, change, ...
+        button.addEventListener("click", (e) => { // (e) <- callback에 event object를 전달한다.
+            // alert();
+            console.log(e); // PointerEvent (event object) <- 어떤 event냐에 따라 event object는 바뀐다.
+            console.log(e.target); // event가 발생한 element // Button
+        })
+    </script> -->
+
+    <!-- <h1>Event</h1>
+    <p>preventDefault</p>
+    AJAX에 요청을 할 때 단골로 쓰이는 Method이다.
+
+    <a href="https://google.com" target="_blank">Google</a>
+    target="_blank": 새 창에 a태그의 주소를 요청한다.
+
+    <script>
+        const anchor = document.querySelector("a");
+
+        anchor.addEventListener("click", (e) => {
+            // e.target의 기본 기능을 실행시키지(default) 않는다.
+            e.preventDefault();
+
+            console.log(e);
+        })
+    </script> -->
+
+    <!-- ------------------------------------------------------ -->
+
+    <!-- <h1>Q. 전구</h1>
+
+
+    <style>
+        .background {
+            background-color: yellow;
+        }
+    </style>
+
+    <button>&#128161</button>
+
+    <script>
+        const button = document.querySelector("button");
+
+        // button.style.backgroundColor = "yellow";
+
+        button.addEventListener("click", (e) => {
+            button.classList.toggle("background");
+        })
+
+    </script> -->
+
+    <!-- 강사풀이 ------------------------------------------ -->
+    
+    <!-- <script>
+        const button = document.querySelector("button");
+
+        button.addEventListener("click", (e) => {
+            console.log("backgroundColor:", button.style.backgroundColor);
+
+            if (button.style.backgroundColor === "yellow") {
+                button.style.backgroundColor = "";
+            } else {
+                button.style.backgroundColor = "yellow";
+            }
+        })
+    </script> -->
+
+    <!-- --------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

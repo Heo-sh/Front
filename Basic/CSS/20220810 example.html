@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .container {
+            display: flex;
+            max-width: 740px;
+            margin: 0 auto;
+            border-top: 1px solid #ddd;
+            flex-wrap: wrap;
+        }
+        .item {
+            width: 100%;
+            padding: 0 1rem;
+            /* text-align: center; */
+            box-sizing: border-box;
+            /* list-style-type: none; */
+        }
+        @media (min-width: 768px) {
+            .item {
+                width: 50%;
+            }
+        }
+        @media (min-width: 1300px) {
+            .item {
+                width: 25%;
+            }
+        }
+    </style>
+    
+<h1>flex-wrap:wrap</h1>
+<div class="container">
+    <div class="item">
+        <h2>heding</h2>
+        <li>List item</li>
+        <li>List item</li>
+        <li>List item</li>
+    </div>
+    <div class="item">
+        <h2>heding</h2>
+        <li>List item</li>
+        <li>List item</li>
+        <li>List item</li>
+    </div>
+    <div class="item">
+        <h2>heding</h2>
+        <li>List item</li>
+        <li>List item</li>
+        <li>List item</li>
+    </div>
+</div>
+</body>
+</html>

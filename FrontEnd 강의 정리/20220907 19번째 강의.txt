@@ -1,0 +1,178 @@
+2022-09-07
+**혼자서 해보는 javascript 예제**
+------------------------------------
+
+let level = prompt("Enter your level(A/B/C)");
+** let 명령문은 블록 스코프의 범위를 가지는 지역 변수를 선언하며,
+                   선언과 동시에 임의의 값으로 초기화할 수 있다.
+** prompt() 함수 - String prompt([String message], [String defaultValue])
+   - 문자열을 입력할 때 사용
+   - 숫자를 입력받아야하는 경우는 문자열로 입력 받은 뒤 변환
+   - 첫번째 매개변수는 입력 창에서 띄워줄 메시지
+   - 두번째 매개변수는 입력 부분의 기본 값
+switch(level) {
+** switch문
+   - 복수의 if 조건문은 switch 문으로 바꿀 수 있다.
+   - switch 문을 사용한 비교법은 특정 변수를 다양한 상황에서 비교할 수 있게 한다.
+   - 코드 자체가 비교 상황을 잘 설명한다는 장점이 있다.
+   - switch 문은 하나 이상의 case 문으로 구성된다.
+   - 대개 default 문도 있지만, 필수는 아니다.
+    case 'A' :
+        console.log('VIP Level');break;
+    case 'B' :
+        console.log('Basic Level');break;
+    default :
+    console.log('No Level');break;
+}
+------------------------------------------------------
+**중첩 for문을 이용한 구구단 만들기**
+
+for(let dan=2;dan<=9;dan++) {
+    console.log("##"+dan+"times table ##");
+    for(let i=1;i<=9;i++) {
+        console.log(dan+"*"+i+"="+dan*i);
+    }
+}
+**Python 중첩 for문으로 구구단 만들기**
+for i in range(2,10):
+    for j in range(1,10):
+        print('%d X %d = %d'%(i, j, i*j))
+    print()
+----------------------------------------------------
+
+console.log("## for ##");
+const colors = ["red", "blue", "green"];
+for (let i = 0; i < colors.length; i++) {
+    console.log( colors[i] );
+}
+
+console.log("## while ##");
+var i = 0;
+while (colors[i] != null) {
+    console.log( colors[i] );
+    i++;
+
+console.log("## forEach ##");
+colors.forEach(function(value) {
+    console.log(value);
+});
+
+console.log("## forEach with Arrow ##");
+colors.forEach( value => console.log(value));
+
+--------------------------------------------------------------------------------
+
+**19번째 JavaScript강의**
+
+--------------------------------------------------------------------------------
+
+**Callback 함수**
+
+function f(callback) {
+    let r = callback ()
+    console.log(r);
+}
+
+// callback이 익명함수일 때
+// function과 ()사이의 빈 공간에 아무것도 없는 것이 익명함수이다.
+f(function () {
+    return "foo";
+})
+
+// callback에 인자가 있을 때
+
+function f1(callback) { ->callback으로 함수가 전달이 되어야한다.
+    let r = callback()
+    console.log(r);
+}
+
+function f2(a, b) {
+    return a + b;
+}
+
+// f1(f2(1, 2)); // <- 실행되지 않는다.
+
+f1(function (x, y) {
+    return f2(1, 2);
+})
+
+-----------------------------------
+// # 변수의 종류
+// var, let, const
+
+// # 변수의 범위 (scope)
+// 전역 범위 : 함수나 블록 밖에서 선언된 변수의 범위
+// 블록 범위 : 블록 안에서 선언된 변수의 범위
+// 함수(지역) 범위 : 함수 안에서 선언된 변수의 범위
+----------------------------------------------------------
+// 함수의 범위
+// 전역 범위
+// 블록 범위
+// 함수(지역) 범위
+-------------------------------------
+// setInterval(callback, ms)
+// ms간격으로 callback 실행
+// 1s = 1000ms
+
+// console.log(new Date().toLocaleTimeString());
+
+-------------------------------------------
+
+// Q. 콘솔에 현재시간을 알려주는 시계를 만들어보세요. 
+
+// function clock() {
+//     console.log(new Date().toLocaleTimeString());
+// }
+// setInterval(clock, 1000);
+---------------------------------------------------
+
+// # Array (배열)
+// 한 개 이상의 값을 가진 상태
+
+---------------------------------------------------
+
+// # Object (객체)
+// 관련된 데이터와 함수의 집합
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+2022-08-10
+
+Side Navigation(Sidebar)
+-항상 고정이 되어있어야해서 position:fixed를 이용
+-contents가 있는 경우 margin을 이용한다. ->index2.html
+-scrollbar의 효과를 변경하려면 -webkit-scorllbar를 이용한다.
+
+Responsive Layout
+-Bootstrap Carousel Template 제작해보기(Layout example)
+
+Features with Bootstrap(examle)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

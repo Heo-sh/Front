@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            height: 1000px;
+        }
+        .container {
+            border: 1px dashed;
+            position: fixed;
+            width: 200px;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            /* bottom: 0과 height: 100%; 동일 */
+            background-color: #222;
+            overflow-y: scroll;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height: 1000px;
+        }
+        a {
+            display: block;
+            color: #fff;
+            padding: 0.75rem;
+            text-decoration: none;
+        }
+        /* li:hover {
+            background-color: #333;
+            이 코드를 사용하면 a:hover와 동일한 효과를 준다.
+        } */
+        a:hover {
+            background-color: #333;
+        }
+        .wrap {
+            margin-left: 200px;
+            height: 100%;
+        }
+    </style>
+    
+    <div class="container">
+        <ul>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Menu</a></li>
+        </ul>
+    </div>
+</body>
+</html>

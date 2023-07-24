@@ -1,0 +1,263 @@
+2022-10-14
+-------------------------------------------
+React
+-------------------------------------------
+
+// React.Fragment
+
+function App() {
+    return (
+        // DOM에 element를 추가하지 않고 자식을 그룹화할 수 있다.
+        <React.Fragment>
+            <h2>React.Fragment</h2>
+            <div>Foo</div>
+            <div>Bar</div>
+            <div>Baz</div>
+        </React.Fragment>
+    )
+}
+
+function App() {
+    return (
+        // 빈 태그를 통해 Fragment와 같은 효과를 줄 수 있다.
+        <> 
+            <h2>React.Fragment</h2>
+            <div>Foo</div>
+            <div>Bar</div>
+            <div>Baz</div>
+        </>
+    )
+}
+
+----------------------------------------------------------------
+
+// JSX attribute
+
+function App () {
+    return (
+        <>
+            <h2>JSX attribute</h2>
+            <ul>
+                <li><a href='#' target={"_blank"}>Foo</a></li>
+                <li><img src='' alt='Bar' /></li>
+                <li><input type={"text"} placeholder="Baz" autoComplete='off'></input></li>
+            </ul>
+        </>
+    )
+}
+
+----------------------------------------------------------------------
+
+// JSX inline style attribute
+
+function App () {
+    return (
+        <>
+            <h2>JSX inline style</h2>
+            {/* style attribute에 Object를 인자로 전달한다. */}
+            <ul style={{border: "1px solid"}}>
+                <li style={{textDecoration: "underline"}}>Foo</li>
+                <li>Bar</li>
+                <li>Baz</li>
+            </ul>
+        </>
+    )
+}
+
+---------------------------------------------------------------------
+
+// JSX 내에서 JS 코드 작성하기
+
+function App() {
+    const foo = "Foo";
+
+    return (
+        <>
+            <h2>JSX 내에서 코드 작성하기</h2>
+            {/* 변수출력 */}
+            <div>{foo}</div>
+            {/* 간단한 연산 */}
+            <div>{"Ba" + "r"}</div>
+            {/* .valueOf(): 값을 출력 */}
+            <div>{"Baz".valueOf()}</div>
+        </>
+    )
+}
+
+-----------------------------------------------------------------
+
+// Q. Complete DOM with JS Object
+// Q. JavaScript 변수와 inline style을 사용하여 virtualDOM을 완성시키시오.
+
+function App() {
+    const dutchBeer = "Heineken";
+    const irishBeer = "Guinness";
+    const japaneseBeer = "Asahi";
+
+    const soldOut = {
+        textDecoration: "line-through",
+        color: "#ddd"
+    };
+
+    return (
+        <>
+        <h2>Beers</h2>
+        <li>{dutchBeer}</li>
+        <li style={soldOut}>{irishBeer}</li>
+        <li>{japaneseBeer}</li>
+        </>
+    )
+}
+
+-------------------------------------------------------------------
+
+// JSX 내에서 조건문 사용하기
+
+// 논리연산자, 삼항연산자
+// && (AND): expr1 && expr2
+// || (OR): expr1 || expr2
+// ! (NOT): !expr
+// 삼항연산자 (Ternary): 조건 ? expr if ture : expr if false
+
+function App() {
+
+    // &&
+    // 1 == true, 0 == false
+    console.log(true && 1); // 1 첫번째 참 두번째가 참이면 두번째가 실행
+    console.log(1 && 0); // 0 첫번째가 참 두번째가 거짓이면 두번째가 실행
+    console.log(0 && 1); // 0 첫번째가 거짓 두번째가 참이면 첫번째가 실행
+    console.log(0 && false); // 0 첫번째가 거짓 두번째도 거짓이면 첫번째가 실행
+
+    // ||
+    console.log(1 || true); // 1 첫번째가 참 두번째가 참이면 첫번째가 실행
+    console.log(1 || 0); // 1 첫번째가 참 두번째가 거짓이면 첫번째가 실행
+    console.log(0 || 1); // 1 첫번째가 거짓 두번째가 참이면 두번째가 실행
+    console.log(false || 0); // 0 첫번째가 거짓 두번째도 거짓이면 두번째가 실행
+
+    return (
+        <>
+            <h2>JSX내에서 조건문 사용하기</h2>
+            <div>{true && "Foo"}</div>
+            <div>{false || "Bar"}</div>
+            <div>{!true ? "" : "Baz"}</div>
+        </>
+    )
+}
+
+----------------------------------------------------------------------
+
+// JSX 내에서 반복문 사용하기
+
+function App() {
+    const arr = ["Foo", "Bar", "Baz"];
+
+    return (
+        <>
+            <h2>JSX 내에서 반복문</h2>
+            <ul>
+                {arr.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+            </ul>
+        </>
+    )
+}
+
+function App() {
+    const arr = ["Foo", "Bar", "Baz"];
+
+    const list = arr.map((item, index) => (
+        <li key={index}>{item}</li>
+    ))
+
+    return (
+        <>
+            <h2>JSX 반복문</h2>
+            <ul>
+                {list}
+            </ul>
+        </>
+    )
+}
+
+----------------------------------------------------------
+
+// Q.
+
+const beers = [
+    {name: "Heineken", origin: "Netherlands"},
+    {name: "Guinness", origin: "Ireland"},
+    {name: "Asahi", origin: "Japan"}
+]
+
+const list = beers.map((beer, index) => (
+    <li key={{index}}>{beer.name}, {beer.origin}</li>
+))
+
+const list = beers.map((beer, index) => {
+    return <li key={index}>{beer.name}</li>
+})
+
+const list = beers.map((beer, index) =>
+    <li key={index}>{beer.name}, {beer.origin}</li>)
+
+function App() {
+    // console.log(beers[0].name);
+    // console.log(beers[0].origin);
+    return(
+    <>
+        <h2>Beers</h2>
+        <ul>
+            {list}
+        </ul>
+    </>
+    )
+}
+-----------------------------------------------------------
+
+// # COMPONENTS (컴포넌트)
+// 정의: 복잡한 UI를 빌드하기 위한 재사용 가능하고 독립적인 부품
+
+// 컴포넌트 기본
+// 함수 컴포넌트와 클래스 컴포넌트가 있다.
+
+// App 컴포넌트
+// 함수 컴포넌트는 기본적으로 함수이다.
+// function App() {
+
+//     // 코드 작성이 가능하며
+//     console.log("App Loaded!");
+
+//     // VirtualDOM을 return한다.
+//     return <h1>App</h1>
+// }
+
+----------------------------------------------------------
+
+// 컴포넌트 합성(Composition)
+// 코드를 재사용한다.
+
+// 컴포넌트의 첫글자는 대문자여야 한다.
+function Foo() {
+    return <li>Foo</li>
+}
+function Bar() {
+    return <li>Bar</li>
+}
+function Baz() {
+    return <li>Baz</li>
+}
+
+function App() {
+    return (
+        <>
+            <h2>컴포넌트 합성</h2>
+            <ul>
+                {/* 모양이 중요하다. html태그같음 */}
+                <Foo />
+                <Bar />
+                <Baz />
+            </ul>
+        </>
+    )
+}

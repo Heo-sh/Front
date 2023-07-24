@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        ul {
+            display: flex;
+        }
+        li > a {
+            padding: 0.5rem;
+            display: block;
+            color: aqua;
+            background-color: black;
+        }
+        li > a:hover {
+            background-color: gray;
+        }
+        .argument:hover .content {
+            display: block;
+        }
+        .argument {
+            background-color: black;
+            width: 100%;
+        }
+        .btn {
+            background-color: black;
+            cursor: pointer;
+            color: aqua;
+            font-size: 1rem;
+            height: 100%;
+        }
+        .btn:hover {
+            background-color: gray;
+        }
+        .content {
+            border: 1px solid black;
+            position: absolute;
+            width: 80px;
+            display: none;
+        }
+        .content a {
+            display: block;
+            padding: 0.5rem;
+            color: aqua;
+        }
+        .content a:hover {
+            background-color: gray;
+        }
+    </style>
+
+    <div class="container">
+        <ul>
+            <li>
+                <a href="@">Menu</a>
+            </li>
+            <li>
+                <a href="@">Menu</a>
+            </li>
+            <li>
+                <a href="@">Menu</a>
+            </li>
+            <li>
+                <a href="@">Menu</a>
+            </li>
+            <li>
+                <a href="@">Menu</a>
+            </li>
+            <li>
+                <a href="@">Menu</a>
+            </li>
+            <li class="argument">
+                <button class="btn">More</button>
+                <div class="content">
+                    <a href="@">Menu</a>
+                    <a href="@">Menu</a>
+                    <a href="@">Menu</a>
+                    <a href="@">Menu</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

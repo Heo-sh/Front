@@ -1,0 +1,71 @@
+2022-07-20
+-tailwindcss.com : 프레임워크 사이트
+-bootstrap : 프레임워크 사이트
+-class 선택자
+-중복 class 선택자
+-id 선택자
+-children 선택자와 direct children 선택자
+-기타 선택자
+-Pseudo class와 Pseudo element(가짜 클래스와 가짜 엘리먼트)
+-button태그
+-padding 속성
+-cursor 속성
+-outline속성
+-font-style 속성
+-text-decoration 속성
+-content 속성
+-unit (css의 단위)
+=em
+=rem
+=%
+=vw
+=vh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

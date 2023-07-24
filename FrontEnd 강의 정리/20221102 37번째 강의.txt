@@ -1,0 +1,232 @@
+2022-11-02
+
+------------------------------------
+ssr - server side randering
+express(nodejs framework)
+
+csr - client side randering
+----------------------------------------
+
+// # Router Login
+
+const AuthContext = createContext();
+
+function AuthProvider({children}) {
+  const [user, setUser] = useState(null);
+
+  function signIn(username) {
+    setUser(username);
+  }
+
+  function signOut() {
+    setUser(null);
+  }
+
+  const value = {user, signIn, signOut};
+
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  )
+}
+
+function Home() {
+  return <h1>Home</h1>
+}
+
+function Posts() {
+  return(
+    <>
+      <ul>
+
+      </ul>
+    </>
+  )
+}
+
+function Post() {
+  const auth = useContext(AuthContext);
+
+  const params = useParams();
+  const postId = params.postId;
+
+  if (!auth.user) {
+    return <p>Unauthorized</p>
+  }
+
+  return (
+    <>
+      <h1>Post</h1>
+      <p>{postId}</p>
+    </>
+  )
+}
+
+function NotFound() {
+  return <h1>404 NotFound</h1>
+}
+
+function Login () {
+  const auth = useContext(AuthContext)
+  const [username, setUsername] = useState("")
+  
+  function handleSubmit(e) {
+    e.preventDefault();
+    auth.signIn(username);
+  }
+
+  const loginTemplate = (
+    <form onSubmit={handleSubmit}>
+      <h1>Sign in</h1>
+      <input
+        type="text"
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <button type="submit">Submit</button>
+    </form>
+  )
+  
+
+  const logoutTemplate = (
+    <div>
+      <h1>Sign Out</h1>
+      <p>{auth.user}</p>
+      <button onClick={auth.signOut}>Submit</button>
+    </div>
+  )
+
+  return auth.user ? logoutTemplate : loginTemplate;
+}
+ 
+function App() {
+  return (
+    <Router>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="posts">Posts</Link>
+          </li>
+          <li>
+            <Link to="login">Login</Link>
+          </li>
+        </ul>
+      </nav>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="posts" element={<Posts />} />
+          <Route path="post/:postId" element={<Post />} />
+          <Route path="login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
+  )
+}
+
+---------------------------------------------------
+
+// # fetch data(data 요청하기)
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  // useEffect(Hook)
+  // 비동기적으로 작동한다.
+
+  // 사용방법
+  // useEffect(callback): 컴포넌트가 실행될 때마다 callback이 실행된다.
+  // useEffect(callback, []): 빈 array를 두번 째 인자로 할 시에는, 
+  // 컴포넌트의 최초 실행 시에만 callback이 실행된다.
+  // useEffect(callback, [dep1, ...]): 컴포넌트의 최초 실행 시, dependency가
+  // 업데이트 될 때마다 callback이 실행된다.
+
+  useEffect(() => { // 처음 버튼을 누를 시에만 효과가 나타난다.
+    const time = new Date().toLocaleTimeString();
+    console.log(time);
+  }, [])
+
+  // 버튼을 누르면 계속해서 시간이 return된다.
+  // const time = new Date().toLocaleTimeString();
+  // console.log(time);
+
+  return (
+    <>
+      <h1>App</h1>
+      <p>App이 {count}번 렌더링되었습니다.</p>
+      <button onClick={() => setCount(count + 1)}>Add</button>
+      <button onClick={() => setCount(count - 1)}>Subtract</button>
+    </>
+  )
+}
+
+-----------------------------------------------------
+
+function fakeApi () { // API 서버가 2초 뒤에 응답을 준다고 가정한다.
+  const beers = [ // 요청한 beerList Data
+    {id: "b1", name: "Heineken"},
+    {id: "b2", name: "Guinness"},
+    {id: "b3", name: "Asahi"}
+  ];
+
+  const promise = new Promise((res, rej) => {
+    setTimeout(() => {
+      res(beers)
+    }, 2000)
+  });
+
+  return promise;
+}
+
+function App() {
+  const [beers, setBeers] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // 두번째 실행
+  useEffect(() => {
+    fakeApi() // promise 함수를 return한다.
+    .then (data => {
+      setBeers(data)
+    })
+    .catch (error => {
+      setError(error)
+    })
+    .finally (() => setIsLoaded(true)) // 성공 실패 여부와 상관없이 return한다.
+  }, [])
+
+  console.log(isLoaded);
+  console.log(error);
+  console.log(beers);
+
+  // 첫번째 실행
+  if (error) {
+    return <p>failed to fetch</p>
+  }
+  if (!isLoaded) { // beerList를 요청한 사용자에게 보여주는 Loding data
+    return <p>fetching data...</p>
+  }
+
+  // 마지막 실행
+  return (
+    <>
+      <h1>Beers</h1>
+      <ul>
+        {beers.map(beer => (
+          <li key={beer.id}>{beer.name}</li>
+        ))}
+      </ul>
+    </>
+  )
+}
+
+---------------------------------------------------------
+
+공동프로젝트 - 총 소요시간 9시간
+공공데이터포털을 이용하여 개발 - 자전거 사고 - 도로교통공단 자전거사고 다발지역 정보 서비스
+react-chart2를 이용하면 좀 더 쉽고 멋있는 개발이 가능
+google react map 으로 googlemap 접속 가능

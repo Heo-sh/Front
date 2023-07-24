@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>hello css</h1> -->
+
+    <!-- 반응형(responsive) -->
+    <!-- 화면의 크기에 맞게 콘텐츠의 배치가 자동으로 조절된다.
+    스크롤이 생기지 않는다.
+    퍼센트를 많이 사용한다. -->
+
+    <!-- 비반응형() -->
+    <!-- 고정된 px(pixel)값을 많이 사용 -->
+
+    <!-- <h1>CSS Selector (선택자)</h1> -->
+    <!-- <p>html element를 선택한다. 스타일 속성을 주기 위한 시작단계</p> -->
+    <!-- element, class, id, children, direct children, ...(등등) -->
+
+    <!-- #element 선택자 -->
+
+    <!-- html 내에서 style 태그로 style속성을 줄 수 있다.
+    속성을 주고자 하는 element보다 위에 있어야한다.-->
+    <!-- <style>
+        h1{
+            font-weight : normal;
+        }
+        p{
+            color : rgb(149, 192, 100);
+        }
+        a{
+            color : #000;
+            text-decoration : none;
+        }
+    </style>
+
+    <h1>Heading 1</h1>
+    <p>paragraph</p>
+    <a href="">Link</a> -->
+
+    <!-- #class 선택자
+     class(변수)로 html element를 선택한다. 가장 많이 사용된다.
+    
+    <style>
+        div {
+            width: 100px;
+            height: 200px;
+            border: none;
+            display: inline-block;
+        }
+        /* .class < 이런 방식으로 바꿀 대상을 선택한다. */
+        .oregano {
+            background-color: green;
+        }
+        .mozzarella {
+            background-color: #fff;
+        }
+        .tomato-sauce {
+            background-color: red;
+        }
+    </style>
+     .class로 대상을 지정하는 div태그를 만들 수 있다.
+    <div class="oregano"></div>
+    <div class="mozzarella"></div>
+    <div class="tomato-sauce"></div>
+    <hr>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+       <br>Corrupti sunt cum earum, repellat odio quidem, 
+       <br>quod aperiam minima ea ipsam atque voluptates aliquid voluptatibus reiciendis neque sint. 
+       <br>Iure, sit? Magnam.</p>
+
+       <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+        .border {
+            border: 1px dashed;
+        }
+        .red {
+            background-color: red;
+        }
+        .rounded {
+            border-radius: 10px;
+        }
+       </style> -->
+
+
+       <!-- 띄어쓰기를 해서 클래스를 추가할 수 있다. -->
+       <!-- <div class = "border red">Div</div> -->
+
+
+
+       <!-- <style>
+        클래스이름A +클래스이름B : A와 B클래스 이름 모두 가진 element를 선택한다.
+        띄어쓰기는 해서는 안된다.
+        .a.b{
+            border: 1px dashed;
+            width: 100px;
+            height: 100px;
+        }
+        .a {
+            background-color: #888;
+        }
+        .b {
+            border-radius: 50%;
+        }
+    </style>
+
+    <div class = "a b"></div> -->
+
+    <!-- # id 선택자 -->
+
+    <!-- <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+        }
+        #foo {
+            background-color: red;
+        }
+        #bar {
+            background-color: blue;
+        }
+        /* 아이디 + 클래스 : 아이디와 클래스 모두 가진 element를 선택한다.
+        id는 element당 하나씩만 가질 수 있다.
+        다른 element가 같은 id를 가질 수 없다. */
+        #bar.rounded {
+            border-radius: 50%;
+        }
+    </style> -->
+
+    <!-- <div id="foo" class="rounded">Foo</div>
+    
+    <div id="bar" class="rounded">bar</div> -->
+
+    <!-- #children 과 direct childern 선택자 -->
+
+    <!-- <style>
+        div {
+            /* 기본값 */
+            background-color: transparent;
+        }
+        .level1 {
+            width: 200px;
+            height: 200px;
+            /* background-color: #ddd; */
+        }
+        .level2 {
+            width: 100px;
+            height: 100px;
+            /* border-radius: 10px; */
+        }
+        .level3 {
+            width: 50px;
+            height: 50px;
+        }
+        /* children 선택자 */
+        /* parent children : parent + 띄어쓰기 +children */
+        /* parent 아래의 모든 children */
+        .level1 div {
+            border: 1px dashed;
+        }
+        /* parent > direct children : 바로 아래의 children을 선택한다. */
+        .level1 > .level2 {
+            border-radius: 10px;
+        }
+    </style> -->
+
+    <!-- <div class="level1">
+        <div class="level2">
+            <div class="level3"></div>
+        </div>
+    </div> -->
+
+    <!-- # 기타 -->
+
+    <!-- <style>
+
+        /* classA, classB, ... : 다른 클래스 이름에 같은 속성을 준다. */
+        #foo, #bar {
+            border: 1px dashed;
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
+
+    <div id="foo">F</div>
+    <div id="bar">B</div> -->
+
+    <!-- <style>
+        /* 전체선택자 (universal selector) : * */
+        * {
+            text-align: center;
+            /* text-align: left */
+            border: 1px dashed;
+        }
+        html,body {
+            border: none;
+        }
+    </style>
+
+    <h1>Heading</h1>
+    <p>Paragraph</p>
+    <small>Small</small> -->
+
+    <!-- # Pseudo class와 Pseudo element(가짜 클래스와 가짜 엘리먼트) -->
+
+    <!-- <style>
+        button {
+            padding: 10px;
+            background-color: #888;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        /* Psuedo class */
+        /* class 이름 옆에 :name 의 형태로 작성한다. */
+        /* element에 특별한 상태를 정의하기 위해 사용된다. */
+        button:hover {
+            background-color: #555;
+        }
+        input[type=text] {
+            padding: 10px;
+        }
+        input[type=text]:focus {
+            outline: 5px solid red;
+        }
+    </style> -->
+
+    <!-- <button>Button</button>
+
+    <hr>
+
+    <input type="text"> -->
+    
+    <!-- <style>
+        ul li {
+            font-weight: normal;
+        }
+        /* children class이며, ul의 children 중 첫번째 element를 선택한다. */
+        ul li:first-child {
+            font-weight: bold;
+        }
+        /* ul의 children 중 두번째 element 선택 */
+        /* 다중의 children element 중에서 원하는 element를 선택할 수 있다. */
+        ul li:nth-child(2) {
+            text-decoration: line-through;
+        }
+        /* ul의 children 중 마지막 element */
+        ul li:last-child {
+            font-style: italic;
+        }
+    </style> -->
+<!-- 
+    <h1>List</h1>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul> -->
+
+    <!-- #Psuedo element -->
+    
+    <!-- <style>
+        .container {
+            border: 1px dashed;
+            width: 100px;
+            height: 100px;
+        }
+        /* parent::after <- pseudo element를 parent의 마지막 children 뒤에 추가한다. */
+        /* parent::before <- pseudo element를 parent의 첫번째 children 앞에 추가한다. */
+        .container::after {
+            content: "Square";
+            background-color: #888;
+        }
+        .container::before {
+            content: "triangle";
+            background-color: #777;
+        }
+        span {
+            background-color: red;
+        }
+        /* pseudo element의 장점 : div를 간소화할 수 있다.
+        또한 div의 대량복제에도 편리하다. */
+    </style> -->
+
+    <!-- <div class="container">
+        <span>@</span>
+        <span>@</span>
+    </div>
+
+    <div class="container">
+        <span>@</span>
+        <span>@</span>
+    </div>
+
+    <div class="container">
+        <span>@</span>
+        <span>@</span>
+    </div>
+    
+    <div class="container">
+        <span>@</span>
+        <span>@</span>
+    </div> -->
+
+    <!-- #UNIT (CSS의 단위) -->
+    <!-- 1 Absolute length (절대값) -->
+    <!-- 예) px, cm, ... -->
+    <!-- 2 Relative length (상대값) -->
+    <!-- 예) rem, em, %, vh, vw, ... -->
+
+    <!-- #Absolute length (절대값) -->
+
+    <!-- <style>
+        .container {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+        }
+    </style> -->
+
+    <!-- <div class="container"></div> -->
+
+    <!-- #Relative length (상대값) -->
+
+    <!-- <style>
+        .container {
+            font-size: 16px;
+        }
+        h1 {
+            border: 1px dashed;
+            font-size: 2em;
+            /* padding, margin에서 1em = 현재 element의 font-size와 같다. */
+            /* padding의 경우는 em으로 표기할 경우 해당된 element의 font-size를 따라간다. */
+            padding: 10px;
+        }
+        p {
+            /* 1em = 부모 element의 font-size */
+            /* em = element */
+            font-size: 1em;
+        }
+        small {
+            font-size: 0.8em;
+        }
+    </style> -->
+    
+    <!-- <div class="container">
+        <h1>Heading 1</h1>
+        <p>Paragraph</p>
+        <small>Small</small>
+    </div> -->
+
+    <!-- <style>
+        /* 1rem(root element) : 브라우저의 기본 글자크기 (16px); */
+        .container {
+            font-size: 10px;
+        }
+        h1 {
+            font-size: 2rem;
+            border: 1px dashed;
+            padding: 1rem;
+        }
+        p {
+            font-size: 1rem;
+        }
+        small {
+            font-size: 0.8rem;
+        }
+    </style> -->
+    
+    <!-- <div class="container">
+        <h1>Heading 1</h1>
+        <p>Paragraph</p>
+        <small>Small</small>
+    </div> -->
+
+    <!-- <style>
+        .container {
+            background-color: #ddd;
+            height: 200px;
+        }
+        .item {
+            /* % : parents 태그 기준 */
+            width: 50%;
+            height: 100px;
+            /* border: 1px dashed; */
+            background-color: aqua;
+        }
+    </style> -->
+
+    <!-- <div class="container">
+        <div class="item"></div>
+    </div> -->
+
+    <!-- <style>
+        .container {
+            background-color: purple;
+            /* vw (viewport-width) : 디바이스 화면일 때의 가로 크기를 설정한다. */
+            /* 100vw : 디바이스 화면 넓이의 100% */
+            width: 100vw;
+            /* vh (viewport-height) : 디바이스의 화면일 때의 세로 크기를 따라간다. */
+            /* 100vh : 디바이스 화면 높이의 100% */
+            height: 100vh;
+        }
+    </style>
+
+    <div class="container"></div>
+     -->
+
+     <!-- #Font 속성 -->
+     <!-- font-color, font-style, font-weight, font-size -->
+
+     <!-- <style>
+        .red {
+            /* font의 color */
+            color: red;
+        }
+        .italic {
+            /* font의 style */
+            /* italic, normal(기본값), oblique, ... */
+            font-style: italic;
+        }
+        .bold {
+            /* font의 굵기 */
+            /* number값 : 100, 200, ..., 700(bold), 900 */
+            /* string : normal(기본값), bold, ... */
+            font-weight: bold;
+        }
+        .light {
+            font-weight: lighter;
+        }
+        .small {
+            /* font의 크기 */
+            /* string : small, large, normal, ... */
+            /* css의 unit : px, rem, ... */
+            font-size: small;
+        }
+        .x-large {
+            font-size: 2rem;
+        }
+     </style>
+
+     <p class="red">Paragraph</p>
+     <p class="italic">Paragraph</p>
+     <p class="bold">Paragraph</p>
+     <p class="light">Paragraph</p>
+     <p class="small">Paragraph</p>
+     <p class="x-large">Paragraph</p> -->
+
+     <!-- #Text 속성 -->
+     <!-- text-align, text-alignment, text-shadow, text spacing, text- transform, ... -->
+
+     <!-- <style>
+        .text-start {
+            /* text-align : text의 정렬 */
+            /* left(기본값), center, right */
+            text-align: left;
+        }
+        .text-center {
+            text-align: center;
+            font-size: larger;
+            color: blue;
+            font-weight: 900;
+            font-style: oblique;
+        }
+        .text-end {
+            text-align: right;
+            color: red;
+        }
+        .text-shadow {
+            /* text-shadow : text의 그림자를 효과를 설정 */
+            /* text-shadow : 오른쪽(필수) 아래(필수) 위 왼쪽 음영color*/
+            text-shadow: 2px 2px rgb(202, 28, 57);
+        }
+        .distant {
+            /* 글자 사이의 간격 */
+            letter-spacing: 10px;
+            font-weight: 900;
+        }
+        .uppercase {
+            /* uppercase : 모든 글자를 대문자로 바꾼다. */
+            text-transform: uppercase;
+        }
+        .capitalize {
+            /* capitalize : 앞글자만 대문자로 바꾼다. */
+            text-transform: capitalize;
+            color: aqua
+        }
+        .none {
+            line-height: 1;
+        }
+        .relaxed {
+            /* 문장의 수직간격 */
+            line-height: 2rem;
+        }
+     </style>
+
+     <p class="text-start">paragraph</p>
+     <p class="text-center">paragraph</p>
+     <p class="text-end">paragraph</p>
+     <p class="text-shadow">paragraph</p>
+     <p class="distant">paragraph</p>
+     <p class="uppercase">paragraph</p>
+     <p class="capitalize">paragraph</p>
+     <p class="none">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, 
+        at perferendis praesentium optio vel provident et amet deserunt voluptatem, vitae mollitia. 
+        Deleniti impedit eaque, in quam rerum doloribus autem aliquid?
+     </p>
+     <p class="relaxed">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+        Vel a unde nostrum. Repudiandae, exercitationem libero! Mollitia, aut molestias? 
+        Mollitia magnam officiis at qui autem laborum esse fugiat quasi neque quos.
+     </p> -->
+
+     <!-- #Border의 속성 -->
+     <!-- border-width, border-style, border-color, direction, shorthand(간단히 쓰기) -->
+
+     <!-- <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border-width: 1px;
+            border-style: dashed;
+            border-color: #000;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .border-8 {
+            /* border의 굵기 */
+            border-width: 8px;
+        }
+        .border-x-8 {
+            /* x : 왼쪽, 오른쪽을 해당한다. ->border direction*/
+            border-left-width: 8px;
+            border-right-width: 8px;
+        }
+        .border-dotted {
+            border-width: 8px;
+            border-style: dotted;
+        }
+        .border-solid {
+            border-width: 8px;
+            border-style: solid;
+        }
+        .border-red {
+            border-width: 4px;
+            border-color: red;
+        }
+        .border-b-8 {
+            /* border direction */
+            /* border-top : 경계선의 위
+            border-left : 경계선 왼쪽
+            border-bottom : 경계선 아래
+            border-right : 경계선 오른쪽 */
+            border-bottom-width: 8px;
+        }
+        .border-top {
+            /* shorthand(간단히 쓰기) */
+            /* border: width style color; */
+             /* direction이 없으면 전체에 적용된다.(top, right, reft, bottom) */
+            border-top: 8px solid blue;
+        }
+        .border {
+            border: 2px solid rgb(240, 6, 240);
+        }
+     </style>
+
+     <div class="border-8">border-8</div>
+     <div class="border-x-8">border-x-8</div>
+     <div class="border-dotted">border-style : dotted</div>
+     <div class="border-solid">border-style : solid</div>
+     <div class="border-red">border-color : red</div>
+     <div class="border-b-8">border-bottom-width</div>
+     <div class="border-top">shorthand</div>
+     <div class="border">another shorthand</div> -->
+
+     <!-- # CSS Color의 속성 -->
+     <!-- color의 속성을 지정하는 법 : name, rgb, rgba, hex, hsl, ... -->
+     
+     <!-- <style>
+        div {
+            height: 50px;
+            border: 1px solid;
+        }
+        .blue {
+            /* color를 name으로 부여 */
+            background-color: blue;
+        }
+        .rgb-red {
+            /* rgb(red, green, blue)
+            0에서부터 255까지 */
+            background-color: rgb(255, 0, 0);
+        }
+        .rgba-red {
+            /* rgba(red, green, blue, alpha(opacity)) */
+            /* opacity 0(완전투명) - 1(완전불투명) */
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+        .hex-red {
+            /* hex(#) : hexadecimal이라 하며, 16진법으로 color를 표시한 것이다. */
+            /* #rrggbb <-r : red, g : green, b : blue */
+            background-color: #ff0000;
+        }
+        .hex-short-red {
+            /* #rrggbb에서 rr이 같고 gg가 같고, bb가 같을 때 3자리로 사용 가능 */
+            background-color: #f66;
+        }
+        .hex-transparent-red {
+            background-color: #33ff9999;
+        }
+     </style>
+
+     <div class="blue"></div>
+     <div class="rgb-red"></div>
+     <div class="rgba-red"></div>
+     <div class="hex-red"></div>
+     <div class="hex-short-red"></div>
+     <div class="hex-transparent-red"></div> -->
+
+     <!-- # padding 속성 -->
+    <!-- element의 내부에 공간을 만든다. -->
+
+    <!-- <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .p-2 {
+            padding: 0.5rem;
+        }
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .pl-2 {
+            padding-left: 0.5rem;
+        }
+        .pr-2 {
+            padding-right: 0.5rem;
+        }
+        .pt-2 {
+            padding-top: 0.5rem;
+        }
+        .pb-2 {
+            padding-bottom: 0.5rem;
+        }
+        .px-shorthand-2 {
+            /* 두가지 값을 적용하는 경우 */
+            /* top with bottom / left with right */
+            padding: 0 0.8rem;
+        }
+        .py-shorthand-2 {
+            padding: 0.8rem 0;
+        }
+        .pl-shorthand-2 {
+            /* 네가지 값을 적용하는 경우 */
+            /* top right bottom left <-시계방향순으로 적용한다. */
+            padding: 0 0 0 0.8rem;
+        }
+        .pr-shorthand-2 {
+            padding: 0 0.8rem 0 0;
+        }
+    </style>
+
+    <div class="p-2"></div>
+    <div class="px-2"></div>
+    <div class="py-2"></div>
+    <div class="pl-2"></div>
+    <div class="pr-2"></div>
+    <div class="pt-2"></div>
+    <div class="pb-2"></div>
+    <div class="px-shorthand-2">padding: 0 0.8rem</div>
+    <div class="py-shorthand-2">padding: 0.8rem 0</div>
+    <div class="pl-shorthand-2">padding: 0 0 0 0.8rem</div>
+    <div class="pr-shorthand-2">padding: 0 0.8rem 0 0</div>
+    <div class="px-2 py-2">px-2 py-2</div>
+    <div class="px-shorthand-2 py-shorthand-2">
+        px-shorthand-2 py-shorthand-2
+    </div>
+    <div class="" style="padding: 0.5rem 0 0;">
+        padding: 0.5rem 0 0
+    </div> -->
+
+    <!-- # margin -->
+    <!-- element의 외부 공간 -->
+    <!-- element 사이의 여백을 줄 때 사용한다. -->
+
+    <!-- <style>
+      div {
+        width: 100px;
+        height: 200px;
+        border: 1px dashed;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .m-2 {
+        margin: 0.5rem;
+      }
+      .ml-2 {
+        margin-left: 0.5rem;
+      }
+      .my-2 {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+    
+    <div class="m-2"></div>
+    <div class="ml-2"></div>
+    <div class="my-2"></div> -->
+    
+    <!-- <style>
+      div {
+        display: inline-block;
+        border: 1px dashed;
+        width: 100px;
+        height: 100px;
+      }
+      /* 좌우의 margin은 합쳐진다. */
+      .mr-2 {
+        margin-right: 0.5rem;
+      }
+      .ml-2 {
+        margin-left: 0.5rem;
+      }
+    </style>
+
+    <div class="mr-2"></div><div class="ml-2"></div> -->
+
+    <!-- <style>
+      div {
+        border: 1px dashed;
+        width: 100px;
+        height: 100px;
+      }
+      /* margin-collapse : 상하의 margin이 겹치는 부분은 제거된다.  */
+      .mb-2 {
+        margin-bottom: 0.5rem;
+      }
+      .mt-2 {
+        margin-top: 0.5rem;
+      }
+    </style>
+
+    <div class="mb-2"></div>
+    <div class="mt-2"></div> -->
+
+    <!-- <style>
+      /* margin negative(음수값) */
+      /* 음수값이 적용이 되어도 그대로 음수값 그대로 반영이 된다. */
+      div {
+        border: 1px dashed;
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+        margin-left: -50px;
+      }
+    </style>
+
+    <div></div> -->
+
+    <!-- # box-sizing -->
+    <!-- box-sizing : content-box, border-box -->
+    
+    <!-- <style>
+      div {
+        width: 100px;
+        height: 100px;
+        border: 1px dashed;
+        display: inline-block;
+        padding: 10px;
+      }
+      .content {
+        /* 기본값 */
+        box-sizing: content-box;
+      }
+      .border {
+        /* 기본값보다 더 기본값처럼 사용된다. */
+        /* border와 padding 값을 주어진 width와 height 안으로 적용된다.  */
+        box-sizing: border-box;
+      }
+    </style>
+
+    <div class=""></div>
+    <div class="content"></div>
+    <div class="border"></div> -->
+
+    <!-- # display -->
+    <!-- display : block, inline-block, inline, ... -->
+
+    <!-- <style>
+      hr {
+        margin: 50px;
+      }
+      span, button, div {
+        border: 1px dashed;
+        padding: 10px;
+        margin: 10px;
+      }
+      button {
+        /* 필요한 만큼만 넓이를 차지한다. */
+        display: inline-block;
+      }
+      div {
+        /* 부모 element의 넓이를 다 차지한다. */
+        display: block;
+      }
+      span {
+        /* 필요한 만큼만 넓이를 차지한다. */
+        /* 위, 아래 margin과 padding이 적용되지 않는다. */
+        /* 주로 text에서 사용한다. */
+        /* 대표적인 element : span, anchor(a태그), ... */
+        display: inline;
+      }
+    </style>
+
+    <button>Button</button>
+    <button>Button</button>
+
+    <hr>
+
+    <div>Div</div>
+    <div>Div</div>
+
+    <hr>
+
+    <span>Span</span>
+    <span>Span</span> -->
+
+    <!-- <style>
+        p {
+            font-style: oblique;
+        }
+    </style>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      Distinctio porro asperiores <span style="background-color: red; padding: 5px"> incidunt aut,</span> quam laboriosam ullam nostrum eaque voluptatum, 
+      aliquam, cum autem ipsa non deleniti perferendis accusantium ad fuga veritatis.
+    </p>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rem, molestiae nam. <span style="font-weight: bold; background-color: aquamarine;">Veritatis consequatur sequi illum,</span> cumque natus reprehenderit deleniti porro dolor earum praesentium fuga, alias aliquam nemo? Aperiam, libero esse?
+    </p> -->
+
+    <!-- # Display : none -->
+
+    <!-- <style>
+        .container div {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+        }
+        .default {}
+        .block {
+            display: block;
+        }
+        .none {
+            /* 화면 상에서 보이지 않는다.
+            공간을 차지하지 않는다. */
+            display: none;
+        }
+    </style>
+
+    <div class="container">
+        <div class="default">default</div>
+        <div class="none">none</div>
+        <div class="block">block</div>
+    </div> -->
+
+    <!-- #vertical-align -->
+    <!-- inline-block의 수직 정렬에 관한 속성 -->
+
+    <!-- <style>
+        .container {
+            background-color: #ddd;
+            height: 200px;
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+            display: inline-block;
+            /* element가 높이가 가장 긴 'item:nth-child(2)'의 하단(baseline)을 기준으로 수직정렬한다. */
+            /* vertical-align: baseline; */
+            /* vertical-align: top; */
+            /* item의 가운데 line을 기준으로 정렬한다. */
+            vertical-align: middle;
+        }
+        .item:nth-child(2) {
+            height: 150px;
+        }
+        .item:last-child {
+            height: 50px;
+        }
+    </style>
+    <div class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div> -->
+
+    <!-- #white-space
+    element의 white-space(공백)을 어떻게 처리할 것이가 -->
+
+    <!-- <style>
+        div {
+            border: 1px dashed;
+            width: auto;
+            height: auto;
+        }
+        .normal {
+            /* white-space: noarmal은 기본값이다. */
+            /* element 안의 contents가 감싸진다.(wrap) */
+            white-space: normal;
+        }
+        .nowrap {
+            /* element 안의 contents가 감싸지지 않는다.(nowrap) */
+            white-space: nowrap;
+            color: blueviolet;
+        }
+        .pre-line {
+            /* element 안의 contents가 필요할 때 감싸진다. (wrap) */
+            /* \n(줄바꿈)을 반영한다. 대신 html에는 보이지 않는다.*/
+            white-space: pre-line;
+        }
+    </style>
+    
+    <div class="normal">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Doloremque fugit ipsa enim totam nisi voluptas, 
+        reiciendis excepturi aut pariatur ut corrupti culpa quo dolorum iure aliquid facilis eius voluptatum. Dolorum?
+    </div>
+    <div class="nowrap">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+        Eum, error necessitatibus laborum delectus illum, et alias iusto mollitia odio obcaecati vero animi repellat consectetur assumenda? 
+        Perspiciatis nihil unde ut! Qui.
+    </div>
+    <div class="pre-line">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        A eveniet porro ratione eaque saepe deleniti ad deserunt quibusdam incidunt, 
+        culpa ullam placeat velit quod optio cumque atque aliquam numquam maxime!
+    </div> -->
+
+    <!-- # visibility -->
+    <!-- element의 가시성 -->
+
+    <!-- <style>
+        .container div {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+        }
+        .hidden {
+            /* 화면 상에서 보이지는 않으나,
+            element가 공간은 계속 차지하는 상태이다. */
+            /* display: none; 과 같으나 공간 차지의 유무가 다르다. */
+            visibility: hidden;
+        }
+        .visible {
+            /* visibility: visible는 기본값이며,
+            element가 보이는 상태이다. */
+            visibility: visible;
+        }
+    </style>
+
+    <div class="container">
+        <div class="default">default</div>
+        <div class="hidden">hidden</div>
+        <div class="visible">visible</div>
+    </div> -->
+
+    <!-- # overflow -->
+    <!-- element가 넘치는 content를 어떻게 처리할 것인가 -->
+
+    <!-- <style>
+        div {
+            width: 120px;
+            height: 200px;
+            border: 1px dashed;
+            display: inline-block;
+            vertical-align: top;
+            /* word-break: break-all; */
+            /* word-break: break-all의 유무에 따라 div 내의 content들이 정렬이 되거나
+            안되기도 한다. */
+        }
+        .hidden {
+            /* div 안에서 넘치는 contents들을 숨긴다. */
+            overflow: hidden;
+        }
+        .scroll {
+            /* x축과 y축에 scroll을 만든다. */
+            overflow: scroll;
+        }
+        .auto {
+            /* x축과 y축 중에서 넘치는 부분에만 scorll을 만든다. */
+            overflow: auto;
+        }
+        .visible {
+            /* overflow: visible 가 기본값이며,
+            넘치는 부분을 보이게 한다. */
+            overflow: visible;
+        }
+    </style>
+    <div class="hidden">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+        Corporis aliquid rerum repellat minus officiis culpa possimus cum maxime libero voluptate, 
+        rem delectus quo dicta quisquam expedita nostrum quia, magnam iusto!
+    </div>
+    <div class="scroll">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+        Corporis aliquid rerum repellat minus officiis culpa possimus cum maxime libero voluptate, 
+        rem delectus quo dicta quisquam expedita nostrum quia, magnam iusto!
+    </div>
+    <div class="auto">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+        Corporis aliquid rerum repellat minus officiis culpa possimus cum maxime libero voluptate, 
+        rem delectus quo dicta quisquam expedita nostrum quia, magnam iusto!
+    </div>
+    <div class="visible">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+        Corporis aliquid rerum repellat minus officiis culpa possimus cum maxime libero voluptate, 
+        rem delectus quo dicta quisquam expedita nostrum quia, magnam iusto!
+    </div> -->
+
+    <!-- # width -->
+
+    <!-- <style>
+        div {
+            border: 1px dashed;
+            overflow: auto;
+        }
+        .default {
+            width: auto;
+        }
+        .max-width {
+            max-width: 600px;
+        }
+        .min-width {
+            min-width: 600px;
+        }
+    </style>
+    <div class="default">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Rem, earum. Alias magnam hic soluta id, nihil mollitia explicabo placeat 
+         esse qui voluptas voluptate blanditiis repellat laboriosam, labore exercitationem! Quae, ut!
+    </div>
+    <div class="max-width">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Rem, earum. Alias magnam hic soluta id, nihil mollitia explicabo placeat 
+         esse qui voluptas voluptate blanditiis repellat laboriosam, labore exercitationem! Quae, ut!
+    </div>
+    <div class="min-width">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Rem, earum. Alias magnam hic soluta id, nihil mollitia explicabo placeat 
+         esse qui voluptas voluptate blanditiis repellat laboriosam, labore exercitationem! Quae, ut!
+    </div> -->
+
+    <!-- # heiht -->
+
+    <!-- <style>
+        div {
+            border: 1px dashed;
+        }
+        .default {
+            /* height가 content에 맞게 높이를 적용한다. */
+            height: auto;
+        }
+        .min-height {
+            min-height: 50px;
+        }
+        .max-height {
+            max-height: 50px;
+        }
+    </style>
+    <div class="default">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Rem, earum. Alias magnam hic soluta id, nihil mollitia explicabo placeat 
+         esse qui voluptas voluptate blanditiis repellat laboriosam, labore exercitationem! Quae, ut!
+        </div>
+    <div class="min-height">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Rem, earum. Alias magnam hic soluta id, nihil mollitia explicabo placeat 
+         esse qui voluptas voluptate blanditiis repellat laboriosam, labore exercitationem! Quae, ut!
+    </div>
+    <div class="max-height">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Rem, earum. Alias magnam hic soluta id, nihil mollitia explicabo placeat 
+         esse qui voluptas voluptate blanditiis repellat laboriosam, labore exercitationem! Quae, ut!
+    </div> -->
+
+    <!-- # position
+    element를 어떻게 위치시킬 것인가. -->
+    <!-- static, relative, absoulte, fixed -->
+    
+    <!-- <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+            /* position: static은 기본값이며,
+            element가 자연스러운 흐름에 따라 위치한다. */
+            position: static;
+        }
+    </style>
+
+    <div class="static"></div> -->
+
+    <!-- <style>
+        .relative {
+            width: 200px;
+            height: 200px;
+            border: 1px dashed;
+            position: relative;
+        }
+        .absolute {
+            /* relative를 부모로 하며, relative가 없을 시 body를 부모로 하며, 부모 element를 기준으로 위치한다. */
+            background-color: red;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+        }
+        .top-0 {
+            top: 0;            
+        }
+        .right-0 {
+            right: 0;
+        }
+        .bottom-0 {
+            bottom: 0;
+        }
+        .left-0 {
+            left: 0;
+        }
+    </style>
+    <div class="relative">
+        <div class="absolute top-0 left-0"></div>
+        <div class="absolute top-0 right-0"></div>
+        <div class="absolute bottom-0 left-0"></div>
+        <div class="absolute bottom-0 right-0"></div>
+    </div> -->
+
+    <!-- <style>
+        body {
+            min-height: 1000px;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+        }
+        .fixed {
+            /* viewport(디바이스의 화면) 기준으로 위치한다. */
+            position: fixed;
+        }
+        .top-0 {
+            top: 0;
+        }
+        .bottom-0 {
+            bottom: 0;
+        }
+        .left {
+            left: 0;
+        }
+    </style>
+
+    <div class="fixed top-0 left-0"></div>
+    <div class="fixed bottom-0 left-0"></div> -->
+
+    <!-- # Transform -->
+    <!-- element의 변형 -->
+    <!-- translate(이동), scale(크기), rotate(회전), skew(비스듬하게) -->
+
+    <!-- <style>
+        .container {
+            background-color: powderblue;
+            width: 200px;
+            height: 200px;
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+        }
+        .translate {
+            /* translate(x, y) */
+            /* item이 원래 위치를 기준으로 이동한다. */
+            /* transform: translate(25px, 50px); */
+            /* transform: translate(25px) 경우는 x축만을 움직이게 한다. translate 뒤에 X를 붙여도 되며, 안 붙여도 된다. */
+            /* transform: translate(25px); */
+            /* transform: translateY(25px); */
+            /* %로 수치를 줄 경우, element 자신의 크기에 상대적으로 이동한다. */
+            transform: translate(50%);
+        }
+    </style>
+    <div class="container">
+        <div class="item translate"></div>
+    </div> -->
+
+    <!-- <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            background-color: cadetblue;
+            position: relative;
+        }
+        .absolute {
+            background-color: blueviolet;
+            width: 25px;
+            height: 25px;
+            border: 1px dashed;
+            position: absolute;
+            /* 부모태그 기준 */
+            top: 50%;
+            left: 50%;
+            /* 자신 element의 크기 기준 */
+            /* -값은 x축은 왼쪽으로, y축을 위쪽으로 움직인다. */
+            transform: translate(-50%,-50%);
+        }
+    </style>
+    <div class="container">
+        <div class="absolute"></div>
+    </div> -->
+
+    <!-- <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+        }
+        .scale {
+            /* 10% 커진다. */
+            /* transform: scale(1.1, 1.1); */
+            transform: scaleY(1.1);
+        }
+    </style>
+
+    <div class="scale"></div> -->
+
+    <!-- <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+        }
+        .rotate {
+            transform: rotate(45deg);
+        }
+    </style>
+
+    <div class="rotate"></div> -->
+
+    <!-- <style>
+        div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .skew {
+            /* skew(x,y) */
+            /* transform: skew(20deg,10deg); */
+            /* transform: skew(20deg); */
+            transform: skewY(20deg);
+        }
+    </style>
+
+    <div class="skew"></div> -->
+
+    <!-- <style>
+        .country {
+            width: 400px;
+            height: 300px;
+            border: 1px solid;
+            position: relative;
+        }
+        .green {
+            background-color: green;
+            width: 40%;
+            height: 100%;
+            display: inline-block;
+        }
+        .red {
+            background-color: red;
+            width: 60%;
+            height: 100%;
+            display: inline-block;
+        }
+        .round {
+            width: 150px;
+            height: 150px;
+            border: 10px solid gold;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 19%;
+            transform: translateY(-50%);
+        }
+    </style>
+
+    <div class="country">
+        <div class="green"></div><div class="red"></div>
+        <div class="round"></div>
+    </div> -->
+
+    <!-- # Float (Layout)이란 -->
+
+    <!-- <style>
+        .left, .right {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+    </style>
+
+    <div class="container">
+        <div class="left">Image</div>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere aperiam velit eaque, enim distinctio laboriosam repudiandae iste ducimus libero porro dolores corporis fugit officiis voluptate itaque sit a deserunt animi.
+        </p>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div class="right">Image</div>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere aperiam velit eaque, enim distinctio laboriosam repudiandae iste ducimus libero porro dolores corporis fugit officiis voluptate itaque sit a deserunt animi.
+        </p>
+    </div> -->
+
+    <!-- <style>
+        .container {
+            background-color: gray;
+        }
+        .container div {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+            width: 33.33333%;
+            /* border와 padding이 주어진 width 안으로 적용된다. */
+            box-sizing: border-box;
+        }
+        .left {
+            float: left;
+        }
+    </style>
+
+    <div class="container">
+        <div class="left"></div>
+        <div class="left"></div>
+        <div class="left"></div>
+    </div> -->
+
+    <!-- <style>
+        .float-container .left {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+        }
+        clearfix
+        .float-container::after {
+            content: "";
+            display: block;
+            clear: left;
+        }
+        .left {
+            float: left;
+        }
+        /* .clear {
+            clear: left;
+        } */
+    </style>
+
+    <div class="container">
+        <h1>Heading 1</h1>
+        <div class="float-container">
+            <div class="left"></div>
+            <div class="left"></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Heading 1</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis tempore in ipsum quod ex neque reiciendis sunt harum dolores, amet incidunt accusamus ullam natus distinctio cum cupiditate explicabo quo cumque.</p>
+    </div> -->
+
+    <!-- # Flex -->
+
+    <!-- flex-container 속성
+    1. flex-direction : flexible item의 방향
+        row (기본값) | row-reverse | column | column-reverse
+    2. flex-wrap : flexible item을 wrap(감쌀 것인지) or not
+        nowrap (기본값) | wrap | wrap-reverse
+    3. justify-content : flexible item의 수평 정렬
+        flex-start (기본값) | flex-end | center | space-between | space-around | space-evenly
+    4. align-items : flexible item의 수직 정렬
+        strecth (기본값) | center | flex-start | flex-end | baseline
+    flex-item 속성 으로 나뉜다. 
+    1. order : flexible item의 순서
+        0 (기본값) | number
+    2. flex-grow : flexible item의 넓이를 증가
+        0 (기본값) | number
+    3. flex-shrink : flexible item의 넓이를 감소
+        1 (기본값) | number
+    4. flex-basis : flexible item의 넓이
+        auto (기본값) | number
+    5. align-self : 특정한 flexible item의 수직 정렬
+        auto (기본값) | stretch | center | flex-start | flex-end | baseline -->
+
+    <!-- <style>
+        .flex {
+            background-color: gray;
+            display: flex;
+        }
+        .item {
+            border: 1px dashed;
+            width: 100px;
+            height: 100px;
+        }
+        .flex-row {
+            /* flex item을 행방향으로 배열한다. */
+            /* flex-direction: row 는 기본값이다. */
+            flex-direction: row;
+        }
+        .flex-col {
+            /* flex item을 열방향으로 배열한다. */
+            flex-direction: column;
+        }
+    </style>
+    
+    <div class="flex flex-row">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <hr>
+
+    <div class="flex flex-col">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div> -->
+
+    <!-- flex wrap -->
+
+    <!-- <style>
+        .flex {
+            display: flex;
+            background-color: gray;
+        }
+        .item {
+            width: 200px;
+            height: 100px;
+            border: 1px solid;
+        }
+        .flex-wrap {
+            /* flex container가 flex item을 감싼다. */
+            flex-wrap: wrap;
+        }
+        .flex-nowrap {
+            /* flex-wrap: nowrap;은 기본값 */
+            /* flex container가 flex item을 감싸지 않는다. */
+            flex-wrap: nowrap;
+        }
+    </style>
+
+    <div class="flex flex-wrap">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <hr>
+
+    <div class="flex flex-nowrap">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div> -->
+
+    <!-- justify-content -->
+
+    <!-- <style>
+        .flex {
+            display: flex;
+            background-color: pink;
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+        }
+        .justify-start {
+            /* justify-content: flex-start는 기본값이다. */
+            /* flexible item이 왼쪽에서부터 정렬된다. */
+            justify-content: flex-start;
+        }
+        .justify-center {
+            justify-content: center;
+        }
+        .justify-between {
+            /* flexible item 사이에 같은 크기의 공간이 생긴다. */
+            justify-content: space-between;
+        }
+    </style>
+
+    <div class="flex justify-start">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+    <hr>
+
+    <div class="flex justify-center">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+    <hr>
+
+    <div class="flex justify-between">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div> -->
+
+    <!-- align-items -->
+
+    <!-- <style>
+        .flex {
+            display: flex;
+            background-color: bisque;
+            height: 100px;
+        }
+        .item {
+            width: 50px;
+            height: auto;
+            border: 1px dashed;
+        }
+        .align-stretch {
+            /* align-items: stretch는 기본값이다. */
+            /* flex container의 높이를 다 차지한다. */
+            align-items: stretch;
+        }
+        .align-baseline {
+            /* item의 contents에 필요한 만큼만 차지한다. */
+            align-items: baseline;
+        }
+        .align-center {
+            /* flex container의 수직에서 가운데에 위치한다. */
+            align-items: center;
+        }
+    </style>
+
+    <div class="flex align-stretch">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <hr>
+
+    <div class="flex align-baseline">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <hr>
+
+    <div class="flex align-center">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div> -->
+
+    <!-- flex item 속성 -->
+    <!-- flex order -->
+
+    <!-- <style>
+        .flex {
+            background-color: beige;
+            display: flex;
+        }
+        .item {
+            width: 50px;
+            height: 50px;
+            border: 1px dashed;
+        }
+        .item:first-child {
+            /* flex item의 container내에서의 순서 */
+            order: 2;
+        }
+        .item:first-child {
+            order: 1;
+        }
+    </style>
+
+    <div class="flex">
+        <div class="item">1</div>
+        <div class="item">2</div>
+    </div> -->
+
+    <!-- flex-grow -->
+
+    <!-- <style>
+        .flex {
+            background-color: rgb(245, 245, 220);
+            display: flex;
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+            /* flex-grow: 0는 기본값이다. */
+            flex-grow: 0;
+        }
+        .item:nth-child(2) {
+            /* flex item(두번째)이 container의 남는 공간을 다 차지한다. */
+            flex-grow: 1;
+        }
+    </style>
+
+    <div class="flex">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div> -->
+
+    <!-- <style>
+        .flex {
+            background-color: bisque;
+            display: flex;
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+            /* flex container를 똑같은 넓이로 나누어 갖는다. */
+            flex-grow: 1;
+        }
+        .item:nth-child(2) {
+            flex-grow: 5;
+        }
+    </style>
+    
+    <div class="flex">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div> -->
+
+    <!-- flex-shrink -->
+    
+    <!-- <style>
+        .flex {
+            background-color: bisque;
+            display: flex;
+        }
+        .item {
+            width: 200px;
+            height: 100px;
+            border: 1px dashed;
+            /* flex-shrink: 1는 기본값이다. */
+            flex-shrink: 1;
+        }
+        .item:nth-child(2) {
+            flex-shrink: 0;
+        }
+    </style>
+
+    <div class="flex">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div> -->
+
+    <!-- flex-basis -->
+
+    <!-- <style>
+        .flex {
+            background-color: cornflowerblue;
+            display: flex;
+        }
+        .item {
+            height: 100px;
+            border: 1px dashed;
+            /* flex item의 width */
+            flex-basis: 33.3333%;
+            /* width: 33.3333%; */
+        }
+    </style>
+
+    <div class="flex">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div> -->
+
+    <!-- <style>
+        .flex {
+            background-color: cornflowerblue;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .item {
+            height: 100px;
+            border: 1px dashed;
+            /* flex item의 width */
+            flex-basis: 33.3333%;
+            /* width: 33.3333%; */
+            box-sizing: border-box;
+        }
+    </style>
+
+    <div class="flex">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div> -->
+
+    <!-- align-self -->
+
+    <!-- <style>
+        .flex {
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            height: 100px;
+        }
+        .item {
+            width: 100px;
+            border: 1px dashed;
+        }
+        .item:first-child{
+            align-self: flex-start;
+        }
+        .item:nth-child(2) {
+            align-self: stretch;
+        }
+        .item:last-child {
+            /* flex container의 align-items 속성에 덮어쓰기가 된다. */
+            /* flex-end : flexible item이 container의 밑에 위치하게 한다. */
+            align-self: flex-end;
+        }
+    </style>
+
+    <div class="flex">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div> -->
+
+    <!-- <style>
+        .flex{
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            height: 300px;
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed;
+            background-color: darkgray;
+        }
+        .item:first-child {
+            align-self: flex-start;
+        }
+        .item:last-child {
+            align-self: flex-end;
+        } 
+    </style>
+    <div class="flex">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div> -->
+
+    <!-- <style>
+        .flex {
+            background-color: #ddd;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .item {
+            border: 1px dashed;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+        }
+    </style>
+    <div class="flex">
+        <div class="item">
+            <div class="dot"></div>
+        </div>
+    </div> -->
+
+<!-- # Grid : 격자형 배열 -->
+
+<!-- <style>
+    .grid {
+        background-color: #ddd;
+        display: grid;
+        /* fr (fraction) : 분수 */
+        /* minmax : 최소, 최대 */
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        /* grid-template-columns: auto auto auto auto; */
+        gap: 1rem;
+    }
+    .item {
+        border: 1px dashed;
+        padding: 1rem;
+        text-align: center;
+    }
+</style>
+
+<div class="grid">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">10</div>
+    <div class="item">11</div>
+    <div class="item">12</div>
+</div> -->
+
+<!-- <style>
+    .container {
+        width: 100px;
+        height: auto;
+        border: 1px dashed;
+    }
+    .item {
+        padding-top: 100%;
+    }
+</style>
+
+<div class="container">
+    <h1>Container</h1>
+    <div class="item"></div>
+</div> -->
+
+<!-- <style>
+    .grid {
+        background-color: #ddd;
+        display: grid;
+        /* fr (fraction) : 분수 */
+        /* minmax : 최소, 최대 */
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        /* grid-template-columns: auto auto auto auto; */
+        gap: 1rem;
+    }
+    .item {
+        border: 1px dashed;
+    }
+    .item:first-child, .item:nth-child(5), .item:nth-child(9){
+        background-color: aqua;
+    }
+    /* .item:nth-child(9) {
+        background-color: blueviolet;
+    } */
+    .pt {
+        content: "";
+        /* padding-top을 100%로 하면 부모 element의 width에 상대적이다. */
+        padding: 100% 0 0;
+    }
+</style>
+
+<div class="grid">
+    <div class="item">
+        <div class="pt"></div>
+    </div>
+    <div class="item">
+        <div class="pt"></div>
+    </div>
+    <div class="item">
+        <div class="pt"></div>
+    </div>
+    <div class="item">
+        <div class="pt"></div>
+    </div>
+    <div class="item">
+        <div class="pt"></div>
+    </div>
+    <div class="item">
+        <div class="pt"></div>
+    </div>
+    <div class="item">
+        <div class="pt"></div>
+    </div>
+    <div class="item">
+        <div class="pt"></div>
+    </div>
+    <div class="item">
+        <div class="pt"></div>
+    </div>
+    <div class="item">
+        <div class="pt"></div>
+    </div>
+    <div class="item">
+        <div class="pt"></div>
+    </div>
+    <div class="item">
+        <div class="pt"></div>
+    </div>
+</div> -->
+
+<!-- # media keyword -->
+<!-- 반응형 제작 -->
+
+<!-- <style>
+    /* Mobile First */
+    .title::after {
+        content: "Extra small devices";
+    }
+    p {
+        color: #888;
+    }
+    /* 예외 */
+    @media (min-width: 640px) {
+        .title::after {
+            content: "Small devices";
+        }
+    }
+    @media (min-width: 768px) {
+        .title::after {
+            content: "Medium devices";
+        }
+    }
+    @media (min-width: 1024px) {
+        .title::after {
+            content: "Large devices";
+        }
+    }
+    @media (min-width: 1280px) {
+        .title::after {
+            content: "Extra Large devices";
+        }
+    }
+    @media (min-width: 1536px) {
+        .title::after {
+            content: "2 Extra Large devices";
+        }
+    }
+</style>
+<div class="container">
+    <h1 class="title"></h1>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo commodi ducimus iusto. Mollitia architecto qui deserunt dolores placeat, quas nobis quae accusamus aspernatur officiis dolore sit voluptatem molestias porro optio?
+    </p>
+</div> -->
+
+<!-- @ Image : [img tag] or [background-image] 속성 -->
+
+<!-- <style>
+    .container {
+        width: 100px;
+        height: 100px;
+        /* border: 1px dashed; */
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        /* object-fit: cover -> 이미지의 비율을 자동으로 조절한다. */
+        object-fit: cover;
+    }
+</style>
+
+<div class="container">
+    <img src="../../img/staria.jfif" alt="">
+</div> -->
+
+<!-- <style>
+    .container {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        border: 1px dashed;
+        border-radius: 15%;
+        overflow: auto;
+    }
+    .bg-light-grey {
+        background-color: blanchedalmond;
+    }
+    .bg-gradient-to-r {
+        /* background-image 속성에 gradient 효과를 줄 수 있다. */
+        background-image: linear-gradient(70deg, rgb(0, 0, 0), red, white, gold, #888);
+    }
+    .bg-image {
+        /* element의 background에 image를 추가한다. */
+        background-image: url(../../img/casper.jfif);
+        /* background-size: cover -> image의 크기를 element의 width에 맞춘다. */
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+
+<div class="container bg-light-grey"></div>
+<div class="container bg-gradient-to-r"></div>
+<div class="container bg-image"></div> -->
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html> 

@@ -1,0 +1,58 @@
+C:\Users\Administrator\Desktop\FrontEnd\Basic\js\20220831script.js2022-08-31
+
+JavaScript의 기초
+
+---------------------------------
+
+-npm install nodemon -g
+-cd C:\Users\Administrator\Desktop\FrontEnd\Basic\js
+-nodemon 20220831script.js
+
+-------------------------------------------------------------------
+
+=참고할 사이트
+:developer.mozilla.org
+
+-----------------------------------------------------------------
+
+Data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

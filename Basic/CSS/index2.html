@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    # Table
+    <!-- <style>
+        table {
+            /* border-collapse: separate; */
+            border-collapse: collapse;
+        }
+        td[scope=row] {
+            font-weight: bold;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+        }
+    </style>
+
+    <h1>Table : Basic</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">1</td>
+                <td>Mark</td>
+                <td>Larry</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <td scope="row">2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <td scope="row">3</td>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    <!-- <style>
+        table {
+            border-collapse: collapse;
+        }
+        thead tr {
+            border-bottom: 1px solid;
+        }
+        /* if thead tr {에서 thead, tr { 을 찍으면
+        thead의 tr이 선택이 아닌 thead와 tr이 선택이 된다. */
+        td[scope=row] {
+            font-weight: 700;
+        }
+        th, td {
+            padding: 0.5rem;
+        }
+        /* :nth-child(odd) : 홀수 */
+        /* :nth-child(even) : 짝수 */
+        tbody tr:nth-child(odd) {
+            background-color: #ddd;
+        }
+        /* tbody tr:nth-child(even) {
+            background-color: aqua;
+        } */
+    </style>
+
+    <h1>Table : Striped rows(첫번째 행에 줄긋기)</h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">1</td>
+                <td>Mark</td>
+                <td>Larry</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <td scope="row">2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <td scope="row">3</td>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    <!-- <style>
+        table {
+            border-collapse: collapse;
+            caption-side: bottom;
+        }
+        thead tr {
+            border-bottom: 1px solid;
+        }
+        td[scope=row] {
+            font-weight: bold;
+        }
+        th, td {
+            padding: 0.5rem;
+        }
+        tbody tr {
+            border-bottom: 1px solid #ddd;
+        }
+        tbody tr:last-child {
+            border: none;
+        }
+        tfoot {
+            border-top: 1px solid;
+            border-bottom: 1px solid #ddd;
+        }
+        caption {
+            text-align: left;
+        }
+    </style>
+
+    <h1>Table : Table footer and caption</h1>
+
+    <table>
+        caption은 thead 위에 오며 기본적인 설명을 부가하는 것이다.
+        <caption>List of users</caption>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">1</td>
+                <td>Mark</td>
+                <td>Larry</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <td scope="row">2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <td scope="row">3</td>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td>Footer</td>
+            <td>Footer</td>
+            <td>Footer</td>
+            <td>Footer</td>
+        </tfoot>
+    </table> -->
+
+<!-- <style>
+    table {
+        border-collapse: collapse;
+    }
+    thead {
+        border-bottom: 1px solid;
+    }
+    tbody tr {
+        border-bottom: 1px solid #ddd;
+    }
+    td[scope=row] {
+        font-weight: bold;
+    }
+    th, td {
+        padding: 0.5rem;
+        text-align: center;
+    }
+    .container {
+        border: 1px dashed;
+        overflow-x: scroll;
+    }
+    /* Chrome, Safari, Opera */
+    .container::-webkit-scrollbar {
+        display: none;
+    /* scrollbar가 보이지 않지만 능력은 남아있다. */
+    }
+    /* IE and Edge */
+    .container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+
+<h1>Table : Responsive</h1>
+
+<div class="container">    
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">1</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+            </tr>
+            <tr>
+                <td scope="row">2</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+            </tr>
+            <tr>
+                <td scope="row">3</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+<!-- <style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        /* table-layout: auto; */
+        table-layout: fixed;
+    }
+    th, td {
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+    }
+</style>
+
+<h1>Table with Table-Layout : fixed</h1>
+
+<table>
+    <colgroup>
+        <col width="40%">
+        <col width="40%">
+        <col width="20%">
+    </colgroup>
+    <thead>
+        <tr>
+            <th scope="col">Song</th>
+            <th scope="col">Artist</th>
+            <th scope="col">Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>The Sliding Mr.Bones(Next Stop, Pottersville)</td>
+            <td>Malcolm Lockyer</td>
+            <td>1961</td>
+        </tr>
+        <tr>
+            <td>Witchy Woman</td>
+            <td>the eagles</td>
+            <td>1972</td>
+        </tr>
+        <tr>
+            <td>Shining Star</td>    
+            <td>earth, wind, and fire</td>
+            <td>1975</td>
+        </tr>
+    </tbody>
+</table> -->
+
+# Dropdown (더보기)
+
+<!-- <style>
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+    .container {
+        /* border: 1px dashed; */
+        position: relative;
+        display: inline-block;
+    }
+    .container:hover .content {
+        display: block;
+    }
+    button {
+        padding: 0.5rem;
+        cursor: pointer;
+        background-color: #555;
+        color: #fff;
+        border: none;
+    }
+    .content {
+        /* border: 1px dashed; */
+        position: absolute;
+        cursor: pointer;
+        width: 200px;
+        /* h(bottom, top) / v(right, left) / blur / spread / color */
+        /* 수평 (필수) / 수직 (필수) / 흐림 / 퍼짐 / 색 */
+        /* bottom / right / blur / color, top / left / blur / color */
+        box-shadow: 1px 1px 3px #eee, -1px -1px 3px #eee;
+        display: inline-block;
+    }
+    ul li {
+        padding: 0.5rem;
+    }
+    ul li:hover {
+        background-color: #eee;
+    }
+</style>
+
+<h1>Dropdown</h1>
+
+<div class="container">
+    <button type="button">Dropdown</button>
+    <div class="content">
+        <ul>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+        </ul>
+    </div>
+</div> -->
+
+<!-- # Modal -->
+
+<!-- <style>
+    .container {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0 0 0 / 0.2);
+    }
+    .item {
+        align-self: center;
+        background-color: #fff;
+        max-width: 400px;
+        /* max-height: 300px; */
+        margin: 0 auto 0;
+        padding: 1rem;
+        box-sizing: border-box;
+        position: relative;
+    }
+    .btn {
+        font-size: xx-large;
+        /* font-weight: 900; */
+        position: absolute;
+        top: -40px;
+        right: -10px;
+        padding: 0.5rem;
+    }
+</style>
+
+<h1>Heading</h1>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit atque accusantium molestias officiis! Deleniti nulla necessitatibus aliquid quisquam, cumque debitis temporibus ex. Voluptates fugiat tempore fugit nobis adipisci dicta asperiores.
+</p>
+
+<div class="container">
+    <div class="item">
+        <span class="btn">&times;</span>
+        <h1>Modal Content</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit atque accusantium molestias officiis! Deleniti nulla necessitatibus aliquid quisquam, cumque debitis temporibus ex. Voluptates fugiat tempore fugit nobis adipisci dicta asperiores.
+        </p>
+    </div>
+</div> -->
+
+# Navigation (메뉴)
+
+<!-- <style>
+    ul {
+        /* 초기화 코드 */
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+        border: 1px dashed;
+        background-color: #222;
+    }
+    ul {
+        display: flex;
+    }
+    a {
+        display: block;
+        /* a가 기본적으로 inline-block이기에 block을 바꿔준 것 */
+        padding: 0.5rem;
+        color: #fff;
+    }
+    a:hover {
+        background-color: #333;
+    }
+</style>
+
+<div class="container">
+    <ul>
+        <li>
+            <a href="#">Menu</a>
+        </li>
+        <li>
+            <a href="#">Menu</a>
+        </li>
+        <li>
+            <a href="#">Menu</a>
+        </li>
+        <li>
+            <a href="#">Menu</a>
+        </li>
+    </ul>
+</div> -->
+
+# Navigation과 반응형의 조합
+
+<!-- <style>
+    ul {
+        /* 초기화 코드 */
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+        border: 1px dashed;
+        background-color: #222;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+    }
+    a {
+        display: block;
+        /* a가 기본적으로 inline-block이기에 block을 바꿔준 것 */
+        text-align: center;
+        padding: 0.5rem;
+        color: #fff;
+    }
+    a:hover {
+        background-color: #333;
+    }
+    @media(min-width: 640px) {
+        ul {
+            flex-direction: row;
+        }
+    }
+</style>
+
+<div class="container">
+    <ul>
+        <li>
+            <a href="C:\Users\Administrator\Desktop\FrontEnd\Basic\CSS\Google.html">Menu</a>
+        </li>
+        <li>
+            <a href="#">Menu</a>
+        </li>
+        <li>
+            <a href="#">Menu</a>
+        </li>
+        <li>
+            <a href="#">Menu</a>
+        </li>
+    </ul>
+</div> -->
+
+#Dropdown과 Navigation의 동시 활용
+
+<!-- <style>
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    .wrap {
+        /* border: 1px dashed; */
+    }
+    ul {
+        background-color: #222;
+        display: flex;
+    }
+    li > a {
+        padding: 0.5rem;
+        display: block;
+        color: #fff;
+    }
+    li > a:hover {
+        background-color: #333;
+    }
+    .container {
+        /* border: 1px dashed; */
+    }
+    .container:hover .content {
+        display: block;
+    }
+    .container:hover .btn span {
+        transform: rotate(0);
+    }
+    .btn {
+        height: 100%;
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+        background-color: #222;
+        color: #fff
+    }
+    .btn:hover {
+        background-color: #333;
+    }
+    .btn span {
+        font-size: 0.8rem;
+        vertical-align: middle;
+        transform: rotate(180deg);
+        display: inline-block;
+        /* -> NTT의 방향을 180도 회전시키는 것
+        block상태일 때는 transform이 작동이 안되기에
+        display: inline-block을 써준 것 */
+        transition: 0.5s;
+        /* ->animation 효과를 줄 수 있다. */
+    }
+    .content {
+        border: 1px solid red;
+        position: absolute;
+        width: 200px;
+        border: 1px solid #ddd;
+        display: none;
+    }
+    .content a {
+        display: block;
+        padding: 0.5rem;
+        color: #000;
+    }
+    .content a:hover {
+        background-color: gray;
+    }
+</style>
+
+<div class="wrap">
+    <ul>
+        <li>
+            <a href="#">Menu</a>
+        </li>
+        <li>
+            <a href="#">Menu</a>
+        </li>
+        <li class="container">
+            <button class="btn">Dropdown <span>&#9660;</span></button>
+            &#9660; : NTT number -> carret down
+            <div class="content">
+                <a href="C:\Users\Administrator\Desktop\FrontEnd\Basic\HTML\index.html">Menu</a>
+                <a href="#">Menu</a>
+                <a href="#">Menu</a>
+            </div>
+        </li>
+    </ul>
+</div> -->
+
+# Side bar
+
+<!-- <style>
+    body {
+        height: 1000px;
+    }
+    .container {
+        border: 1px dashed;
+        position: fixed;
+        width: 200px;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        /* bottom: 0과 height: 100%; 동일 */
+        background-color: #222;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        display: block;
+        color: #fff;
+        padding: 0.75rem;
+        text-decoration: none;
+    }
+    /* li:hover {
+        background-color: #333;
+        이 코드를 사용하면 a:hover와 동일한 효과를 준다.
+    } */
+    a:hover {
+        background-color: #333;
+    }
+    .wrap {
+        margin-left: 200px;
+        height: 100%;
+    }
+</style>
+
+<div class="container">
+    <ul>
+        <li><a href="#">Menu</a></li>
+        a href="#" -> #의 경우 페이지 이동을 하지 않게끔 해준다.
+    </ul>
+    <ul>
+        <li><a href="#">Menu</a></li>
+    </ul>
+    <ul>
+        <li><a href="#">Menu</a></li>
+    </ul>
+    <ul>
+        <li><a href="#">Menu</a></li>
+    </ul>
+</div>
+
+<div class="wrap">
+    <h1>Heading</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae ullam obcaecati ratione laboriosam quisquam animi maiores, soluta amet qui voluptatum incidunt numquam ab aperiam enim quo eaque est. Excepturi, voluptatibus.</p>
+</div> -->
+
+<!-- <style>
+    body {
+        height: 3000px;
+    }
+    .container {
+        border: 1px dashed;
+        position: fixed;
+        width: 5rem;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #222;
+        overflow-y: auto;
+    }
+    /* .container {
+        scrollbar-width: thin;
+        scrollbar-color: gray;
+    } */
+    .container::-webkit-scrollbar {
+        width: 12px;
+    }
+    .container::-webkit-scrollbar-track{
+        background-color: gray;
+    }
+    .container::-webkit-scrollbar-thumb {
+        background-color: #222;
+        border-radius: 20px;
+        border: 1px solid #222;
+    }
+    .container::-webkit-scrollbar-thumb:hover {
+        background-color: #333;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        height: 500%;
+    }
+    a {
+        display: block;
+        text-decoration: none;
+        padding: 1rem;
+        text-align: center;
+        border-bottom: 1px solid #333;
+        color: #fff;
+    }
+    a:hover {
+        background-color: #333;
+    }
+</style>
+
+<div class="container">
+    <ul>
+        <li><a href="#">#</a></li>
+        <li><a href="#">#</a></li>
+        <li><a href="#">#</a></li>
+        <li><a href="#">#</a></li>
+    </ul>
+</div> -->
+
+# Responsive Layout
+
+<!-- <style>
+    .wrap {
+        background-color: #222;
+    }
+    h1 {
+        text-align: center;
+        color: #fff;
+    }
+    h4 {
+        text-align: center;
+        color: red;
+        font-style: inherit;
+        font-size: small;
+    }
+    p {
+        color: #888;
+    }
+    .container {
+        /* border: 1px solid; */
+        max-width: 540px;
+        margin: auto;
+        color: #fff;
+        padding: 3rem 1rem;
+    }
+</style>
+
+<div class="wrap">
+    <div class="container">
+        <h4>new</h4>
+        <h1>Dark Mode Hero</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, nihil illum sapiente, blanditiis nesciunt quod fuga ipsam, nobis illo facilis placeat? Eveniet architecto placeat officia quo! Ab recusandae illo blanditiis.
+        </p>
+    </div>
+</div> -->
+
+<!-- <style>
+    .container {
+        display: flex;
+        max-width: 740px;
+        margin: 0 auto;
+        border-top: 1px solid #ddd;
+        flex-wrap: wrap;
+        /* flex가 no wrap상태에서는 .item의 width가 적용이 안되므로 wrap상태로 만들어줘야한다. */
+    }
+    .item {
+        width: 100%;
+        padding: 0 1rem;
+        text-align: center;
+        box-sizing: border-box;
+        /* box-sizing을 하지 않을 경우 media가 4배열이 되지 않는다. */
+    }
+    @media (min-width: 640px) {
+        .item {
+            width: 50%;
+        }
+    }
+    @media (min-width: 768px) {
+        .item {
+            width: 25%;
+        }
+    }
+    </style>
+
+<h1>flex with width</h1>
+<div class="container">
+    <div class="item">
+        <h2>Heading</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+    <div class="item">
+        <h2>Heading</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+    <div class="item">
+        <h2>Heading</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+    <div class="item">
+        <h2>Heading</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+    <div class="item">
+        <h2>Heading</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+    <div class="item">
+        <h2>Heading</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+    <div class="item">
+        <h2>Heading</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+    <div class="item">
+        <h2>Heading</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+</div> -->
+
+<!-- <style>
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 740px;
+        margin: 0 auto;
+        border-top: 1px solid #ddd;
+    }
+    .item {
+        width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    ::marker {
+        color: blueviolet;
+    }
+    @media(min-width: 640px) {
+        .item {
+            width: 50%;
+        }
+    }
+</style>
+
+<h1>Flex-wrap: wrap</h1>
+
+<div class="container">
+    <div class="item">
+        <h2>Heading</h2>
+        <ul>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+        </ul>
+    </div>
+    <div class="item">
+        <h2>Heading</h2>
+        <ul>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+        </ul>
+    </div>
+    <div class="item">
+        <h2>Heading</h2>
+        <ul>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+        </ul>
+    </div>
+</div> -->
+
+# Image
+
+<!-- <style>
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .container {
+        width: 200px;
+        height: 200px;
+        opacity: 0.5;
+        cursor: pointer;
+    }
+    .container:hover {
+        opacity: 1;
+    }
+</style>
+
+<h1>Basic thumbnails</h1>
+
+<div class="container">
+    <img src="../../img/car-63930_960_720.webp" alt="">
+</div> -->
+
+<!-- <style>
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .container {
+        border: 1px dashed;
+        width: 200px;
+        height: 200px;
+        cursor: pointer;
+        overflow: hidden;
+    }
+    img {
+        transition: 0.5s;
+    }
+    .container:hover img{
+        transform: scale(1.1, 1.1);
+    }
+</style>
+<h1>Sclable thumnails</h1>
+
+<div class="container">
+    <img src="../../img/casper.jfif" alt="">
+</div> -->
+
+
+<!-- <style>
+    img {
+        width: inherit;
+        height: inherit;
+        object-fit: cover;
+    }
+    .container {
+        width: 200px;
+        height: 200px;
+        cursor: pointer;
+        position: relative;
+    }
+    .item {
+        position: absolute;
+        height: 25%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0 0 0 / 0.5);
+        color: #fff;
+        /* No Image라는 단어를 중간에 위치하기 위한 명령어들 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* 애니메이션 효과와 비슷하게 효과를 주기 위한 명령어들 */
+        opacity: 0;
+        transition: 0.5s;
+    }
+    .container:hover .item {
+        opacity: 1;
+    }
+    </style>
+
+<h1>Overlay thumbnails</h1>
+
+<div class="container">
+    <div class="item">No Image</div>
+    <img src="../../img/noImage.png" alt="">
+</div> -->
+
+<!-- <style>
+    .container {
+        height: 250px;
+        background-color: #ddd;
+        position: relative;
+        background-image: url("../../img/staria.jfif");
+        background-position: center;
+        background-size: cover;
+        /* background-size: repeat;는 image가 반복된다. */
+        filter: grayscale(70%);
+        /* 회색조로 보이게 filter를 쓰인다. */
+    }
+    .item {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #ddd;
+    }
+</style>
+
+<div class="container">
+    <div class="item">
+        <h1>Heading</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+</div> -->
+
+# Animation
+
+--Spinner--
+
+<!-- <style>
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid;
+        border-top: 5px solid transparent;
+        border-radius: 50%;
+        /* animation의 이름 */
+        animation-name: spin;
+        /* animation이 한번 실행되는데(form에서 to까지) 걸리는 시간 */
+        animation-duration: 2s;
+        /* animation의 반복횟수 */
+        animation-iteration-count: infinite;
+        /* animation의 시간적인 기능 */
+        animation-timing-function: linear;
+        color: aqua;
+    }
+    .another {
+        width: 20px;
+        height: 20px;
+        border: 3px solid;
+        border-top: 3px solid transparent;
+        border-radius: 50%;
+        color: red;
+        position: absolute;
+        right: 1px;
+    }
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        } to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<h1>Spinner</h1>
+
+<div class="spinner">
+    <div class="another"></div>
+</div> -->
+
+--Progress Bar--
+
+<!-- <style>
+    .container {
+        width: 200px;
+        height: 10px;
+        background-color: #ddd;
+    }
+    .item {
+        height: 100%;
+        background-color: #333;
+        /* animation shorthand (간단하게 쓰기) */
+        /* animation: name duration timing-function delay iteration-count direction fill-mode play-state */
+        /* animation:의 기본값 -> name 1s ease 0s 1 normal none running */
+        /* animation: fill 2s; */
+        animation: fill 2s ease infinite;
+    }
+    @keyframes fill {
+        from {
+            width: 0;
+        } to {
+            width: 100%;
+        }
+    }
+</style>
+
+<h1>Progress Bar</h1>
+
+<div class="container">
+    <div class="item"></div>
+</div> -->
+
+<!-- <style>
+    .container {
+        width: 50px;
+        height: 50px;
+        /* border: 1px dashed; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer; 
+    }
+    .container .item {
+        width: 50px;
+        height: 4px;
+        background-color: #000;
+        transition: 0.5s;
+    }
+    .container:hover .item:nth-child(2) {
+        opacity: 0;
+    }
+    .container:hover .item:first-child {
+        transform: translateY(23px) rotate(45deg);
+    }
+    .container:hover .item:last-child {
+        transform: translateY(-23px) rotate(-45deg);
+    }
+    </style>
+
+<div class="container">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div> -->
+
+<!-- <style>
+    body {
+        margin: 0;
+        position: relative;
+        height: 100vh;
+        background-color: #000;
+    }
+    /* 태양 */
+    body > .sun {
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: orangered;
+        box-shadow: 0 0 50px 10px red;
+    }
+    /* 궤도 */
+    .orbit {
+        width: 600px;
+        height: 600px;
+        /* border: 1px dashed; */
+        /* border-radius: 50%; */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: orbit 25s infinite linear;
+    }
+    /* 지구 */
+    .orbit .earth {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: dodgerblue;
+        box-shadow: 0 0 50px 10px skyblue;
+    }
+
+    @keyframes orbit {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);   
+        } to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+</style>
+
+<div class="sun"></div>
+<div class="orbit">
+    <div class="earth"></div>
+</div> -->
+
+<style>
+    body {
+        display: flex;
+        background-color: #333;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        display: inline-flex;
+        /* display: flex; */
+        /* border: 1px dashed; */
+        gap: 0.5rem;
+        align-items: center;
+    }
+    .item {
+        width: 25px;
+        height: 50px;
+        background-color: #fff;
+        /* border: 1px dashed; */
+        animation-name: wave;
+        animation-duration: 0.6s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        /* animation: wave 0.6s infinite linear; */
+        /* animation의 방향을 처음에서 끝으로 왕복한다. */
+        /* animation-direction: normal(기본값) / reverse / alternate / alternate-reverse; */
+        animation-direction: alternate;
+    }
+    .item:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    .item:last-child {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes wave {
+        from {
+            height: 50px;
+        } to {
+            height: 150px;
+        }
+    }
+</style>
+
+<div class="container">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+2022-07-27
+
+css 기초
+selector : clement, .class, #id, children, direct childern
+Pseudo : class and ::element, unit : {absolute : px, cm | relative : rem, em, %, vh, vw}
+
+font : color, style
+
+----------------------------------------------------
+display의 속성
+
+vertical-align
+inline-block의 수직 정렬에 관한 속성
+
+Psuedo 클래스
+
+white-space란 무엇인가
+- normal
+- nowrap
+- pre-line
+
+visibility란 무엇인가
+
+overflow란?
+ps)word-brake
+
+width의 활용
+- default
+- max-width
+- min-width
+
+-------------------------------------------------
+
+height의 활용
+- default
+- max-height
+- min-height
+
+position이란
+- static
+- absolute
+- relative
+- fixed
+
+transform이란
+- translate(이동)
+- scale(크기)
+- rotate(회전)
+- skew(비스듬하게)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

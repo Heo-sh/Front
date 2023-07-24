@@ -1,0 +1,382 @@
+2022-09-19
+
+Array
+
+-------------------------------------------
+// map()
+// const arr = ["foo", "bar", "baz"];
+
+// // map(callback)
+// // callback에 배열의 value, index, array를 인자로 전달한다.
+// // Array를 순회하면서 item에 특정한 메서드를 적용할 수 있다.
+// // 새로운 Array(r)를 return한다.
+// const r = arr.map(function (value, index, array) {
+//     return value.toUpperCase(); // toUpperCase(); : 문자열(Alphabet)을 대문자로 만든다.
+// })
+
+// console.log(arr);
+// console.log(r); 
+
+// const arr = [1, 2, 3, 4];
+
+// const r = arr.map(function (value){  // index, array는 삭제가능
+//     return value * 10;
+// })
+
+// console.log(arr);
+// console.log(r);
+
+// filter()
+// const arr = ["foo", "bar", "baz"];
+
+// // Array를 순회하며 특정한 조건에 맞는 value로 구성된 새로운 Array를 return한다.
+// const r = arr.filter(function (value, index, array) {
+//     if (value.charAt(0) === "b") { // charAt(index) : 문자열에서 index에 해당하는 문자를 return한다.
+//         return value;
+//     }
+// })
+
+// console.log(arr); // ['foo', 'bar', 'baz']
+// console.log(r); // ['bar', 'baz']
+
+// Object
+// const o = {prop1: "foo", prop2: "bar", prop3: "baz"};
+// // Object의 key로 이루어진 Array를 return한다.
+// const r = Object.keys(o);
+// const v = Object.values(o);
+
+// console.log(o); // [prop1: 'foo', prop2: 'bar', prop3: 'baz']
+// console.log(r); // key를 return ['prop1', 'prop2', 'prop3']
+// console.log(v); // value를 return ['foo', 'bar', 'baz']
+
+// const o = {prop1: "foo", prop2: "bar", prop3: "baz"};
+
+// // key와 value 쌍을 array의 형태로 return한다.
+// const r = Object.entries(o);
+
+// console.log(o);
+// console.log(r);
+
+// const arr = [1, 2, 3, 4, 5];
+
+// const r = arr.filter(function (value, index) {
+//     if (value > 2) {
+//         return value;
+//     }
+// })
+
+// console.log(r);
+
+// ---------------------------------------------
+// Q.
+// 1. origin으로만 구성된 Array를 만들어보세요. (map)
+// 2. 유럽 맥주로만 구성된 Array를 만들어보세요. (filter)
+
+// const beers = [
+//     { name: "Heineken", origin: "Netherland"},
+//     { name: "Kloud", origin: "S.Korea"},
+//     { name: "Guinness", origin: "Ireland"},
+//     { name: "Asahi", origin: "Japan"}
+// ];
+
+// console.log(beers);
+
+// const O = beers.map(function (value) {
+//     return value.origin;
+// })
+
+// console.log(O);
+
+// const Europe = beers.filter(function (value) {
+//     if (value.name === "Heineken") {
+//         return value.name;
+//     }
+// })
+
+// console.log(Europe);
+
+// 강사풀이 ---------------------------------------
+
+// const origins = beers.map(function (beer) {
+//     return beer.origin;
+// })
+// console.log("World beers from", origins);
+
+// const europeanBeers = beers.filter(function (beer) {
+//     if (beer.origin === "Netherland" || beer.origin === "Ireland") {
+//         return beer;
+//     }
+// })
+// console.log("European beers", europeanBeers);
+
+// ------------------------------------------------
+
+// # Destructing assignment (구조분해 할당)
+// 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 JavaScript 표현식
+// Array: Array의 item들을 개별적으로 변수에 담을 수 있게 한다.
+// Object: Object의 속성들을 개별적으로 변수에 담을 수 있게 한다.
+// Example)
+var a, b, rest;
+[a, b] = [10, 20];
+console.log(a); // 10
+console.log(b); // 20
+
+[a, b, ...rest] = [10, 20, 30, 40, 50];
+console.log(a); // 10
+console.log(b); // 20
+console.log(rest); // [30, 40, 50]
+
+({ a, b } = { a: 10, b: 20 });
+console.log(a); // 10
+console.log(b); // 20
+
+
+// Stage 4(finished) proposal
+({a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40});
+console.log(a); // 10
+console.log(b); // 20
+console.log(rest); // {c: 30, d: 40}
+
+// Array
+// const arr = ["foo", "bar", "baz"];
+// console.log(arr);
+
+// 기존의 방법
+// Array의 item들을 개별적으로 변수에 담았다. -> index를 이용해 Array의 item에 접근
+// const item0 = arr[0];
+// const item1 = arr[1];
+// const item2 = arr[2];
+
+// console.log(item0);
+// console.log(item1);
+// console.log(item2);
+
+// const arr = ["foo", "bar", "baz"];
+
+// // 기존의 방법보다 단순해진 문법 -> 문법이기에 복잡한 작업 불가
+// const [item0, item1, item2] = arr;
+
+// console.log(item0);
+// console.log(item1);
+// console.log(item2);
+
+function calculator(x, y) {
+    return [x + y, x - y, x * y, x / y];
+}
+
+// 각각의 item들을 개별적으로 변수에 담음.
+// 변수의 개수와 item의 개수가 같아야한다.
+// 변수와 item들의 순서 또한 중요하다.
+const [add, substract, multiply, divide] = calculator(1, 2);
+console.log(calculator(1,2));
+
+console.log("add", add);
+console.log("substract", substract);
+console.log("multiply", multiply);
+console.log("divide", divide);
+
+const beers = [
+    { name: "Heineken", origin: "Netherland"},
+    { name: "Kloud", origin: "S.Korea"},
+    { name: "Guinness", origin: "Ireland"},
+    { name: "Asahi", origin: "Japan"}
+]
+
+const [DeutchBeer, KoreanBeer, IrishBeer, JapaneseBeer] = beers;
+
+console.log("독일맥주", DeutchBeer);
+console.log("한국맥주", KoreanBeer);
+console.log("아일랜드맥주", IrishBeer);
+console.log("일본맥주", JapaneseBeer);
+
+var DB, KB, IB, JB;
+[DB, KB, IB, JB] = ["Heineken", "Kloud", "Guinness", "Asahi"];
+console.log("독일 :", DB);
+console.log("한국 :", KB);
+console.log("아일랜드 :", IB);
+console.log("일본 :", JB);
+
+// Object {}
+// property : 속성
+// const o = {prop1: "foo", prop2: "bar", prop3: "baz"};
+
+// // Object의 속성들을 변수에 담았다.
+// // key 값으로 속성에 접근했다.
+// // 속성들의 value를 변수에 담았다.
+// const prop1 = o.prop1;
+// const prop2 = o.prop2;
+// const prop3 = o.prop3;
+
+// console.log(prop1); // foo
+// console.log(prop2); // bar
+// console.log(prop3); // baz
+
+// 문법의 단순화
+
+// const {prop1, prop2, prop3} = o;
+
+// console.log(prop1);
+// console.log(prop2);
+// console.log(prop3);
+
+// 함수에서 Destructing 사용하기
+
+// const o = {prop1: "foo", prop2: "bar", prop3: "baz"};
+
+// // 함수의 인자로 들어간 것 이외에 달라진 것 없음.
+// // 변함없이 key 값으로 속성에 접근을 한다.
+// f(o); // -> hoisting : 함수호출을 함수선언식보다 미리 작성하는 법
+// function f(props) { // props = properties
+//     // 여기서의 변수 이름은 key 값의 이름과 일치할 필요가 없다.
+//     const prop1 = props.prop1;
+//     const prop2 = props.prop2;
+//     const prop3 = props.prop3;
+
+//     console.log(prop1);
+//     console.log(prop2);
+//     console.log(prop3);
+// }
+
+// 단순해진 문법
+
+// f(o);
+// 인자에 들어갈 key의 이름과 일치해야함.
+// function f({prop1, prop2, prop3}) {
+//     console.log(prop1);
+//     console.log(prop2);
+//     console.log(prop3);
+// }
+
+// -------------------------------------------------
+// Q1. 다음과 같은 문장을 출력하는 함수를 정의해보세요. (구조분해할당을 사용하여 함수 파라미터를 정의)
+// Guiness is originated in the brewery at lreland.
+
+// const IrishBeer = { name: "Guinness", origin: "Ireland"}
+// console.log(IrishBeer);
+
+// Sentence(IrishBeer);
+// function Sentence({name, origin}) {
+//     console.log(name);
+//     console.log(origin);
+//     console.log(name + " is originated in the brewery at " + origin);
+// }
+
+// 강사풀이 ----------------------------------------------
+
+// f(IrishBeer);
+// function f({name, origin}) {
+//     console.log(name + " is originated in the brewery at " + origin);
+// }
+
+// -------------------------------------------
+
+// Q2. 원산지에 일치하는 맥주이름의 변수를 만들어보세요. (구조분해할당 사용)
+
+// const origins = ["Netherland", "S.Korea", "Ireland", "Japan"];
+
+// const [Heineken, Kloud, Guinness, Ashai] = origins;
+
+// console.log("Heineken :", Heineken);
+// console.log("Kloud :", Kloud);
+// console.log("Ireland :", Guinness);
+// console.log("Ashai :", Ashai);
+
+// 강사풀이 ------------------------------------------------
+
+// const [Heineken, Kloud, Guinness, Ashai] = origins;
+// console.log(Kloud);
+
+// ----------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

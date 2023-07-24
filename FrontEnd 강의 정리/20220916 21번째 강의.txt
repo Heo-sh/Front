@@ -1,0 +1,334 @@
+2022-09-16
+
+// # class의 static 속성과 static 메소드
+// class 자체의 속성과 메서드이다.
+// instance는 호출할 수 없다.
+// class와 관련된 instance 등에 utility를 제공하는 역할을 한다.
+
+class Cat {
+    constructor(name, months) {
+        this.name = name;
+        this.months = months;
+    }
+
+    // static 속성
+    static description = "고양이는 18개월 이상이 되면 성체가 됩니다."
+
+    // static 메서드
+    static isAdult(months) {
+        if (months < 18) {
+            return "아기 고양이"
+        } else {
+            return "성체 고양이"
+        }
+    }
+}
+
+const cat = new Cat("kitty", 12);
+console.log(cat);
+
+// Cat의 instance에서 static 속성과 static 메서드를 호출할 수 없다.
+// console.log(cat.description); // undefined
+// console.log(cat.isAdult()); // cat.isAdult is not a function : 정의되지 않았기에 호출불가
+
+// Cat class가 자체적으로 호출
+// Cat class or Cat class의 instance 등에 utility를 제공한다.
+console.log(Cat.description); // 고양이는 18개월 이상이 되면 성체가 됩니다.
+console.log(Cat.isAdult(cat.months)); // 아기고양이
+
+// static 메서드로만 이루어진 class
+// class Calculator {
+//     static add(a, b) {
+//         return a + b;
+//     }
+//     static subtract(a, b) {
+//         return a - b;
+//     }
+//     static multiply(a, b) {
+//         return a * b;
+//     }
+//     static divide(a, b) {
+//         return a / b;
+//     }
+// }
+
+// console.log(Calculator.add(1,2));
+// console.log(Calculator.subtract(1,2));
+// console.log(Calculator.multiply(1,2));
+// console.log(Calculator.divide(1,2));
+
+//--------------------------------------------
+
+// # JavaScript의 미리 정해진 class(builtin Class)
+// 종류
+// 문자 처리: String
+// 숫자 및 날짜: Number, Math, Date
+// Indexed collections: Array
+// error : Error, SyntaxError, ReferenceError, TypeError, ...
+// etc : Promise, JSON
+
+// builtin class의 instance 만들기
+// 부제: JavaScript에서 모든 data는 Object(객체)이다.
+
+// const foo = new String("bar");
+
+// console.log(foo);
+// console.log(typeof foo); // object
+
+// String class의 instance를 literal 표기법을 이용해 생성
+// foo변수는 메서드와 속성을 Sting으로부터 상속받았다.
+// const foo = "bar"; // literal 표기법 (class를 호출하지 않고 값을 정의한다.)
+// console.log(foo);
+// console.log(typeof foo);
+
+// console.log("foo".toUpperCase());
+
+// const num = new Number(2);
+// console.log(num); // Number: 2
+// console.log(typeof num); // object
+
+// const num = 2;
+// console.log(num); // 2
+// console.log(typeof num); // number -> object
+
+// const date = new Date();
+// console.log(date);
+
+// const bool = new Boolean(true);
+// const bool = true;
+
+// const arr = new Array("foo", "bar", "baz"); // array : 한 개 이상의 value를 가진 상태
+// const arr = ["foo", "bar", "baz"] // literal
+// console.log(arr);
+
+// const o = new Object({foo: "bar"});
+// const o = {foo: "bar"} // literal
+// console.log(o);
+
+// // Math의 static 속성 'PI'
+// const pi = Math.PI; // Math는 이름 그대로 수학과 관련된 속성이 많다.
+// console.log(pi);
+
+// Error class는 다양한 종류의 Error의 instance 생성에 사용된다.
+// const err = new Error("Something's broken!"); // Error는 literal이 안된다.
+// console.log(err);
+// console.log(err.name); // Error <- Error instance의 이름은 class와 동일
+// console.log(err.message); // Something's broken!
+
+// ☆ builtin class의 instance로 custom Error 발생시키기
+
+//사용자가 정의한 함수 f
+function f(data) { // data는 전달받는 인자
+    if (typeof data !== "string") { // -> 전달받는 data가 string이 아니면
+        // throw: custom Error
+        // TypeError(): builtin class의 instance를 사용했다.
+        throw new TypeError("인자는 문자여야만 합니다.");
+    }
+
+    // throw 아래 코드는 실행되지 않는다. -> Error가 발생하면
+    console.log("인자:", data);
+}
+
+try {
+    // f함수를 호출했다.
+    f(2);
+} catch (err) {
+    console.error(err);
+}
+// --------------------------------------------------------------
+// Q. 빌트인 클래스인 RangeError의 인스턴스를 사용해서
+// 15세 소녀가 cu에서 술을 사려고 하는 것을
+// 막아보세요
+
+// function girl(age) {
+//     if (age <= 18) {
+//         throw RangeError("No, only adult!");
+//     }
+//     console.log("You can!");
+// }
+
+// try {
+//     girl(15);
+// } catch(err) {
+//     console.error(err);
+// }
+
+// 강사풀이 ------------------------------------------------------------
+
+// try {
+//     const age = 15;
+
+//     console.log("15세 소녀가 술을 사러 cu에 가고 있다.");
+
+//     if (age < 18) {
+//         const err = new RangeError("3년 뒤에 오세요")
+//         // throw: custom Error를 발생시킨다.
+//         throw err
+//     }
+
+//     console.log("15세 소녀가 술을 사는데 성공했다!");
+// } catch(err) {
+//     console.error(err);
+// }
+
+// --------------------------------------------------------------------
+
+// # builtin class의 instance들의 속성과 메서드 사용하기
+
+// String
+
+// const foo = "bar";
+// console.log(foo.length); // 문자열의 길이
+// console.log(foo.toUpperCase()); // 대문자로 만든다.
+// console.log(foo.toLowerCase()); // 소문자로 만든다.
+// console.log(foo.split("a")); // 인자를 기준으로 문자열을 분할하여 Array의 형태로 return한다.
+// console.log(foo.replace("r","z")); // .replace(a, b): 문자열 중에 a를 b로 대체한다.
+
+// Number
+
+// const year = 2022;
+// console.log(year); // type is Number
+// console.log(year.toString()); // Number type을 String으로 변환
+// console.log(year.toString(2)); // -> 2진법으로 변환 toString(기수): 해당하는 기수법으로 변환한다.
+// console.log(year.toPrecision(10)); // 정밀도, 숫자의 개수를 인자에 맞게 출력한다.
+// console.log(Number.isNaN(year)); // NaN(Not a Number) isNaN(인자): 인자가 NaN인지 판별
+
+// Math
+
+// console.log(Math.random()); // 0에서 1사이의 소수를 return한다.
+// console.log(Math.PI); // Pi
+// console.log(Math.round(0.5)); // 반올림
+// console.log(Math.round(0.4)); // 반올림
+// console.log(Math.ceil(0.5)); // 올림
+// console.log(Math.ceil(0.4)); // 올림
+// console.log(Math.floor(0.5)); // 내림
+// console.log(Math.floor(0.6)); // 내림
+// console.log(Math.pow(2,7)); // 거듭제곱 (square root)
+// console.log(Math.sqrt(16)) // 제곱근
+// console.log(Math.max(10, 100)); // 최대값
+// console.log(Math.min(10, 100)); // 최소값
+
+//Date
+
+// const date = new Date();
+// console.log(date); // GMT 시간 (그리니치 평균시)
+// console.log(date.toLocaleString()); // 현지시간 = date with time (String type으로 출력)
+// console.log(date.toLocaleTimeString()); // 현지 시간만 출력 = only time (String Type)
+
+// Array
+
+// const arr = ["foo", "bar"];
+// console.log(arr);
+
+// arr.push("baz"); // 새로운 item을 마지막에 추가한다.
+// console.log(arr);
+
+// const arr = ["foo", "bar", "baz"];
+
+// arr.pop(); // Array의 마지막 item을 제거
+// console.log(arr);
+
+// const arr = ["foo", "bar", "baz"];
+
+// const r = arr.slice(1, 2); // slice(start, end) end는 생략가능
+// // slice 메서드는 새로운 Array를 return한다.
+// r.push("call"); // ["bar", "call"]
+
+// console.log(r);
+
+// const r = arr.slice(1);
+// console.log(r); // ["bar", "baz"]
+
+// const arr = ["foo", "bar", "baz"];
+
+// const r = arr.sort(); // 기본형으로 사용할 때는 String Array에만 정상적으로 작동한다.
+
+// console.log(r); // 알파벳 순서대로 정렬
+
+// const arr = [100, 25];
+
+// const r = arr.sort(); // 100과 25를 문자열로 변환한 뒤 비교하여 정렬한다.
+// console.log(r); // [100, 25] 정상작동 X
+
+// const arr = [20, 10, 30];
+
+// const r = arr.sort(function (a, b) {
+//     return a - b;
+// })
+
+// console.log(r);
+
+// const arr1 = ["foo", "bar"];
+// const arr2 = ["baz"];
+// const arr3 = arr1.concat(arr2); // arr1.concat(arr2) arr1 뒤에 arr2를 연결한다.
+
+// console.log(arr3); // ["foo", "bar", "baz"] -> Good
+// console.log(arr1 + arr2); // foo, barbaz -> Bad
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

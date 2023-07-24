@@ -1,0 +1,131 @@
+2022-08-12
+
+w3schools.com
+
+Image
+-간단한 썸네일 만들기
+-image에 관련된 명령어
+ object-fit
+ opacity
+ transform
+ transition -> display나 invisible로는 효과를 줄 수 없다.
+ justify-content
+ align-items
+-basic thumbnails
+-sclable thumbnails 
+-Overlay thumbnails
+
+----------------------------------------
+
+css hero image
+background-image로 image 넣기
+background-position
+background-size
+filter
+-moz- : firefox에만 적용
+-webkit- : safari에만 적용
+
+Animation
+-Pure CSS Loader : Spiner site
+-animation-name -> animation의 이름을 정하는 것으로 임의로 가능
+-animation-duration -> animation이 한번 실행되는데 걸리는 시간
+-animation-iteration-count -> animation의 반복횟수
+-animation-timing-function ->animation의 시간적인 기능
+ - linear
+ - ease
+ - ease-in
+ - ease-out
+ - ease-in-out
+animation shorthand (간단하게 쓰기)
+animation: name duration timing-function delay iteration-count direction fill-mode play-state
+- 중간의 iteration-count에만 값을 주고 싶은 경우
+  timing-function과 delay에 기본값을 주어야한다.
+- animation:의 기본값 -> name 1s ease 0s 1 normal none running
+
+---------------------------------------------------------------------
+
+Menu 'Hamburger' Icon Action
+
+CSS Solar System
+
+<style>
+    body {
+        margin: 0;
+        position: relative;
+        height: 100vh;
+        background-color: #000;
+    }
+    /* 태양 */
+    body > .item {
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: orangered;
+        box-shadow: 0 0 50px 10px red;
+    }
+    /* 궤도 */
+    .container {
+        width: 600px;
+        height: 600px;
+        /* border: 1px dashed; */
+        /* border-radius: 50%; */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: earth 10s infinite linear;
+    }
+    /* 지구 */
+    .container .item {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: dodgerblue;
+        box-shadow: 0 0 50px 10px skyblue;
+    }
+
+    @keyframes earth {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);   
+        } to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+</style>
+
+<div class="item"></div>
+<div class="container">
+    <div class="item"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

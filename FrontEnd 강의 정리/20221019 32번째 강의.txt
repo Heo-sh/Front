@@ -1,0 +1,333 @@
+2022-10-19
+
+---------------------------------------------------------
+
+// children props
+
+function Foo() {
+    return <li>Foo</li>
+}
+function Bar() {
+    return <li>Bar</li>
+}
+function Baz() {
+    return <li>Baz</li>
+}
+function C(props) {
+    const children = props.children;
+    return <ul>{children}</ul>
+}
+function App() {
+    return (
+        <>
+            <h1>App</h1>
+            <C>
+                <Foo />
+                <Bar />
+                <Baz />
+            </C>
+        </>
+    )
+}
+
+----------------------------------------------------------------------------
+
+// children에 props 전달하기
+
+const FooContext = createContext();
+
+function Foo(props) {
+    const children = props.children;
+
+    // 함수범위(지역범위)
+    // Foo컴포넌트 내에서만 접근가능
+    const foo = "FOO";
+
+    return (
+        <fieldset>
+            <legend>Foo</legend>
+            {/* key값은 value로 고정 */}
+            <FooContext.Provider value={foo}>
+                {children}
+            </FooContext.Provider>
+        </fieldset>
+    )
+}
+
+function Bar(props) {
+    const children = props.children;
+
+    // useConstext를 이용하면 어디서든 부모의 값에 접근 가능하다.
+    const x = useContext(FooContext);
+    console.log(x);
+
+    return (
+        <fieldset>
+            <legend>Bar</legend>
+            {children}
+        </fieldset>
+    )
+}
+
+function Baz() {
+    // const foo = useContext(FooContext);
+    const x = useContext(FooContext); // 굳이 변수의 명이 foo일 필요는 없다.
+    
+    // console.log(x);
+
+    // return <div>{foo}</div>
+    return <div>Baz</div>
+}
+
+function App() {
+    return (
+        <Foo>
+            <Bar>
+                <Baz />
+            </Bar>
+        </Foo>
+    )
+}
+
+--------------------------------------------------------------------------
+
+// Q.
+// 각 함수마다 availability를 담을 변수 명을 다르게 줬으나,
+// 각기 다른 범위를 가지고 있기에 변수 명을 통일할 수 잇다.
+
+const BeersContext = createContext();
+
+function Beers({children}) {
+
+    const availability = {
+        guinness: false,
+        ashai: true,
+        kloud: true
+    }
+    
+    return (
+        <>
+            <h1>Beers &#127866;</h1>
+            <BeersContext.Provider value={availability}>
+                {children}
+            </BeersContext.Provider>
+        </>
+    )
+}
+
+function EuropeanBeers({children}) {
+    return (
+        <>
+            <h2>European beers</h2>
+            {children}
+        </>
+    )
+}
+
+function IrishBeer() {
+    const guinness = useContext(BeersContext);
+
+    console.log(guinness.guinness);
+
+    return (
+        <>
+            <h3>Guinness</h3>
+            <div>Available: {guinness.guinness ? "Yes" : "No"}</div>
+        </>
+    )
+}
+
+function AsianBeers({children}) {
+    return (
+        <>
+            <h2>Asian beers</h2>
+            {children}
+        </>
+    )
+}
+
+function JapaneseBeer() {
+    const ashai = useContext(BeersContext);
+
+    return(
+        <>
+            <h3>ASAHI</h3>
+            <div>Available: {ashai.ashai ? "Yes" : "No"}</div>
+        </>
+    )
+}
+
+function KoreanBeer() {
+    const kloud = useContext(BeersContext);
+
+    return(
+        <>
+            <h3>KLOUD</h3>
+            <div>Available: {kloud.kloud ? "Yes" : "No"}</div>
+        </>
+    )
+}
+
+function App() {
+    return (
+        <Beers>
+            <EuropeanBeers>
+                <IrishBeer />
+            </EuropeanBeers>
+            <AsianBeers>
+                <JapaneseBeer />
+                <KoreanBeer />
+            </AsianBeers>
+        </Beers>
+    )
+}
+
+----------------------------------------------------------------------
+
+// # Event
+
+function App() {
+    function handleClick(e) {
+        console.log(e); // onClick
+        console.log(e.target);
+    }
+
+    // attribute: onEventName={callback} => React
+    // addEventListener("click", callback) => JavaScript
+
+    return (
+        <>
+            <h1>Click event</h1>
+            {/* handleClick 자리에 익명함수가 대체 가능*/}
+            <button onClick={handleClick}>Button</button>
+        </>
+    )
+}
+
+------------------------------------------------------------------
+// callback에 인자를 전달하지 않을 때
+document.body.addEventListener("click", f);
+
+function f(e) {
+    console.log(e);
+}
+
+// 위에 것과 같음(익명함수 사용)
+document.body.addEventListener("click", (e) => {
+    console.log(e);
+})
+
+// callback에 인자가 있을 때
+document.body.addEventListener("click", () => {
+    f("Foo");
+})
+
+function f(foo) {
+    console.log(foo);
+}
+
+function App() {};
+
+// callback에 인자를 전달하고 싶은 경우 -> 익명함수를 사용해야한다.
+
+function App() {
+    function handleClick(foo) {
+        console.log(foo)
+    }
+
+    return (
+        <>
+            <h1>click event</h1>
+            {/* 인자를 따로 전달하고 싶을 때 익명함수를 사용한다. */}
+            <button onClick={() => handleClick("Foo")}>Button</button>
+        </>
+    )
+}
+
+-----------------------------------------------------------------
+
+function App() {
+    function handleClick(x) {
+        console.log(x);
+    }
+
+    // 이벤트에서 다른 element가 같은 callback을 사용할 때
+    
+    return (
+        <>
+            <h1>Accordion</h1>
+            <button onClick={() => handleClick("Foo")}>Foo</button>
+            <button onClick={() => handleClick("Bar")}>Bar</button>
+            <button onClick={() => handleClick("Baz")}>Baz</button>
+        </>
+    )
+}
+
+----------------------------------------------------
+
+// change Event
+
+// function App() {
+//   function handleChange(e) {
+//     console.log(e.target.value);
+//   }
+
+//   // change => input의 value가 변화했을 때
+//   // keyup => 키보드의 자판이 눌릴 때
+
+//   return (
+//     <>
+//       <h1>change</h1>
+//       {/* input의 type이 바뀔 때마다, handleChange가 trigger가 되고 있다. */}
+//       <input type={"text"} onChange={handleChange}></input>
+//     </>
+//   )
+// }
+
+----------------------------------------------------------------
+
+// Q.
+
+function App() {
+  function handleChange(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    console.log(name, value)
+  }
+
+  return (
+    <>
+      <h1>Login</h1>
+      <div>
+        <label htmlFor='username'>Username</label>
+        <input type={"text"} id="username" name="username" autoComplete="off" onChange={handleChange}></input>
+      </div>
+      <div>
+        <label htmlFor='password'>Password</label>
+        <input type={"text"} id="password" name="password" autoComplete="off" onChange={handleChange}></input>
+      </div>
+    </>
+  ) 
+}
+
+------------------------------------------------
+
+// submit Event
+
+function App() {
+  function handleSubmit(e) {
+    // preventDefault: 기본값을 실행시키지 않는다. 지금 경우에서는 form이 제출되지 않는다.
+    e.preventDefault();
+
+    console.log("제출되었습니다.");
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h1>Form</h1>
+      <p>...</p>
+      <button type="submit">Submit</button>
+    </form>
+  )
+}

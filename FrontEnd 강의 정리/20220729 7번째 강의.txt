@@ -1,0 +1,72 @@
+2022-07-29
+
+Float이란?
+
+clearfix란?
+
+Flex란?
+
+----------------------------------------------------------
+<!-- flex-container 속성
+    1. flex-direction : flexible item의 방향
+        row (기본값) | row-reverse | column | column-reverse
+    2. flex-wrap : flexible item을 wrap(감쌀 것인지) or not
+        nowrap (기본값) | wrap | wrap-reverse
+    3. justify-content : flexible item의 수평 정렬
+        flex-start (기본값) | flex-end | center | space-between | space-around | space-evenly
+    4. align-items : flexible item의 수직 정렬
+        strecth (기본값) | center | flex-start | flex-end | baseline
+    flex-item 속성 으로 나뉜다. 
+    1. order : flexible item의 순서
+        0 (기본값) | number
+    2. flex-grow : flexible item의 넓이를 증가
+        0 (기본값) | number
+    3. flex-shrink : flexible item의 넓이를 감소
+        1 (기본값) | number
+    4. flex-basis : flexible item의 넓이
+        auto (기본값) | number
+    5. align-self : 특정한 flexible item의 수직 정렬
+        auto (기본값) | stretch | center | flex-start | flex-end | baseline -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

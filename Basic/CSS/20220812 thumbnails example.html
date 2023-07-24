@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        img {
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+        }
+        .container {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            position: relative;
+        }
+        .item {
+            position: absolute;
+            border: 1px dashed;
+            width: 100%;
+            height: 50px;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0 0 0 / 0.5);
+            color: #fff;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .container:hover .item {
+            opacity: 1;
+        }
+        </style>
+    
+    <h1>Overlay thumbnails</h1>
+    
+    <div class="container">
+        <div class="item">No Image</div>
+        <img src="../../img/noImage.png" alt="">
+    </div>
+
+    <!-- <style>
+        img {
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+        }
+        .container {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            position: relative;
+        }
+        .item {
+            position: absolute;
+            height: 25%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0 0 0 / 0.5);
+            color: #fff;
+            /* No Image라는 단어를 중간에 위치하기 위한 명령어들 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 애니메이션 효과와 비슷하게 효과를 주기 위한 명령어들 */
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .container:hover .item {
+            opacity: 1;
+        }
+        </style>
+    
+    <h1>Overlay thumbnails</h1>
+    
+    <div class="container">
+        <div class="item">No Image</div>
+        <img src="../../img/noImage.png" alt="">
+    </div>
+
+    <style>
+        img {
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+        }
+        .container {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            position: relative;
+        }
+        .item {
+            position: absolute;
+            top: 70;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0 0 0 / 0.5);
+            color: #fff;
+            /* No Image라는 단어를 중간에 위치하기 위한 명령어들 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 애니메이션 효과와 비슷하게 효과를 주기 위한 명령어들 */
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .container:hover .item {
+            opacity: 1;
+        }
+        </style>
+    
+    <h1>Overlay thumbnails</h1>
+    
+    <div class="container">
+        <div class="item">No Image</div>
+        <img src="../../img/noImage.png" alt="">
+    </div> -->
+</body>
+</html>

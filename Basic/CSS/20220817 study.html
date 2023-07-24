@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        body {
+            display: flex;
+            background-color: #333;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: inline-flex;
+            /* display: flex; */
+            /* border: 1px dashed; */
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .item {
+            width: 25px;
+            height: 50px;
+            background-color: #fff;
+            /* border: 1px dashed; */
+            animation-name: wave;
+            animation-duration: 0.6s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            /* animation: wave 0.6s infinite linear; */
+            /* animation의 방향을 처음에서 끝으로 왕복한다. */
+            /* animation-direction: normal(기본값) / reverse / alternate / alternate-reverse; */
+            animation-direction: alternate;
+        }
+        .item:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .item:last-child {
+            animation-delay: 0.4s;
+        }
+    
+        @keyframes wave {
+            from {
+                height: 50px;
+            } to {
+                height: 150px;
+            }
+        }
+    </style>
+    
+    <div class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

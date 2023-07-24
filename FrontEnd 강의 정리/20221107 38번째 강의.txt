@@ -1,0 +1,28 @@
+2022-11-07
+
+--------------------------------
+#GROUP PROJECT -(4조 허성혁, 안교남, 유세종, 방효빈)
+- 발표: 2022-11-16 수요일
+
+#API Server
+-공공데이터 포털
+
+#Map API
+-KakaoMap
+-reactkakaoMap
+
+#Chart Library
+Rechart
+
+#Deploy
+-Github pages
+
+# Sample
+-https://tvvmvn.github.io/react-gh-pages
+
+# Another
+-https://reactjsexample.com/tag/mobile/
+
+---------------------------------------------------
+#Add Project file
+-npx create-react-app group-project 

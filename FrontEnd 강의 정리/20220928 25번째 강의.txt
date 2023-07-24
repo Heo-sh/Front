@@ -1,0 +1,468 @@
+2022-09-28
+--------------------------------------------------------------------
+
+    <h1>DOM 선택자</h1>
+    <p>자식 선택자 </p>
+
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+
+        console.log(ul);
+        console.log(ul.children); // HTMLCollection(3) [li, li, li]
+        console.log(ul.children[0]); // foo <- index를 통해 접근 가능
+        console.log(ul.children.length); // 3 <- item의 갯수 파악 가능
+
+        console.log(ul.firstElementChild); // foo
+        console.log(ul.lastElementChild); // baz
+    </script>
+
+----------------------------------------------------------------------
+
+<h1>Q. World Beer</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Origin</th>
+                <th>available</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="dutchBeer" class="beer">
+                <td>Heineken</td>
+                <td>Netherland</td>
+                <td>Yes</td>
+            </tr>
+            <tr id="irishBeer" class="beer">
+                <td>Guinness</td>
+                <td>Ireland</td>
+                <td>No</td>
+            </tr>
+            <tr id="koreanBeer" class="beer">
+                <td>Kloud</td>
+                <td>S.Korea</td>
+                <td>Yes</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // 1. beer클래스를 가진 행을 모두 선택해보세요.
+        // const beer = document.querySelectorAll(".beer"); // class가 beer인 element들을 모두 선택
+
+        // console.log(beer); // Nodelist
+
+        // 강사 풀이법
+
+        // const beers = window.document.getElementsByClassName("beer"); // window는 생략가능
+        // console.log(beers); // 복수 선택시 beers처럼 복수형태의 단어로 지정해주는 게 좋다. // HTMLCollection
+
+        // 2. 나라별 맥주 행을 선택해보세요.
+        // const country = document.querySelector("tbody"); // 태그 이름으로 전체 선택 후
+
+        // console.log(country.firstElementChild); // 자식 선택자로 개별 return
+        // console.log(country.children[1]);
+        // console.log(country.lastElementChild);
+
+        // 강사 풀이법
+
+        // const dutchBeer = document.getElementById("dutchBeer");
+        // const irishBeer = document.getElementById("irishBeer");
+        // const koreanBeer = document.getElementById("koreanBeer");
+
+        // console.log(dutchBeer);
+        // console.log(irishBeer);
+        // console.log(koreanBeer);
+
+        // const dutchBeer = document.querySelector("#dutchBeer");
+        // console.log(dutchBeer);
+
+        // 3. 아일랜드  맥주의 이용여부를 나타내는 셀을 선택해보세요.
+        const Irish = document.querySelector("#irishBeer"); // -> querySelector(#id): id를 가진 element를 선택한다.
+
+        // console.log(Irish);
+        console.log(Irish.lastElementChild); // -> 자식선택자로 풀이
+
+        // 강사 풀이법
+
+        // const irishBeer = document.getElementById("irishBeer");
+
+        // const isIrishBeerAvailable = irishBeer.children[2];
+
+        // console.log(isIrishBeerAvailable);
+
+        // const irishBeer = document.getElementById("irishBeer");
+        // const isIrishBeerAvailable = irishBeer.lastElementChild;
+
+        // console.log(isIrishBeerAvailable);
+    </script>
+
+------------------------------------------------------------------------------------------------------
+
+    <h1>DOM 속성(Property)</h1>
+    <p>innerHTML</p>
+
+    <UL>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </UL>
+
+    <script>
+        const ul = document.querySelector("ul");
+        console.log(ul);
+
+        // element.innerHTML: element 내부의 tree를 문자열로 return한다.
+        console.log(ul.innerHTML);
+        console.log(typeof ul.innerHTML); --> <li>foo</li>
+                                                        <li>bar</li>
+                                                        <li>baz</li>
+    </script>
+
+    <ul></ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+
+        ul.innerHTML = `
+            <li>foo</li>
+            <li>bar</li>
+            <li>baz</li>
+        ` // 백틱기호: 따옴표에서 안되는 줄바꿈이 가능하다. // JavaScript로 작성해 HTML로 return할 수 있다.
+    </script>
+
+-----------------------------------------------------------------------
+
+    <h1>DOM 속성</h1>
+    <P>ClassList</P>
+    <!-- element의 classList를 return하는 속성 -->
+
+    <ul>
+        <li id="foo" class="class1">foo</li>
+        <li id="bar" class="class1 class2">bar</li>
+        <li id="baz">baz</li>
+    </ul>
+
+    <script>
+        const foo = document.getElementById("foo");
+        const ber = document.getElementById("bar");
+
+        console.log(foo.classList); // DOMTokenList
+        console.log(bar.classList); // DOMTokenList <- list의 형태 중 하나
+        console.log(bar.classList[0]); // class1 <- index를 통해 접근 가능
+        console.log(bar.classList[1]); // class2
+        console.log(foo.classList.length); // 1
+        console.log(bar.classList.length); // 2
+    </script>
+
+
+    <p>정해져있는 속성이기에 변경은 가능해도 삭제는 불가하다.</p>
+    <p>Object의 관점에서 생각하면 좋다.</p>
+
+    <ul>
+        <li><a href="" id="foo">Foo</a></li>
+        <li><img src="" alt="" id="bar"></li>
+        <li><input type="text" id="baz"></li>
+    </ul>
+
+    <script>
+        const foo =document.getElementById("foo");
+        const bar =document.getElementById("bar");
+        const baz =document.getElementById("baz");
+
+        foo.href = "Foo";
+        bar.alt = "Bar";
+        baz.value = "Baz";
+    </script>
+
+-----------------------------------------------------------------
+
+    <style>
+        ul {
+            border: 1px solid;
+        }
+        li:first-child {
+            text-decoration: underline;
+        }
+    </style>
+
+    <h1>DOM 속성</h1>
+    <p>style: JavaScript에서 elemet의 style에 접근하는 속성</p>
+
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+        const li = document.querySelectorAll("li");
+
+        console.log(ul.style); // CSSStyleDeclaration
+        console.log(li[0].style); // CSSStyleDeclaration
+
+        console.log(ul.style.border); // JavaScript에서 css에 접근할 수 없다.
+        console.log(li[0].style.textDecoration); // JavaScript에서 css에 접근할 수 없다
+    </script>
+
+--------------------------------------------------------------------
+
+    <h1>DOM 속성</h1>
+    <p>style JavaScript로만 효과주기</p>
+
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+        const li = document.querySelectorAll("li");
+
+        console.log(ul.style);
+        console.log(li[0].style);
+
+        ul.style.border = "1px solid";
+        li[0].style.textDecoration = "underline";
+
+        console.log(ul.style.border); // 1px solid
+        console.log(li[0].style.textDecoration); // underline
+
+    </script>
+
+--------------------------------------------------------------------
+
+    <h1>DOM Method</h1>
+    <p>createElement, appendChild</p>
+
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+
+        // document.createElement(element): element(태그이름)를 만든다.
+        const li = document.createElement("li"); // 1. 새로운 list를 만든다.
+
+        // element.textContent: element태그 내의 text에 접근한다.
+        li.textContent = "baz"; // 2. 새로 만든 리스트에 text를 추가한다.
+
+        // element1.appendChild(element2): element2를 element1의 마지막 자식으로 추가한다.
+        ul.appendChild(li); // 3. 새로 만든 list를 ul이라는 element에 추가한다.
+
+    </script>
+
+<!-- ---------------------------------------------------------------- -->
+
+    <h1>Q. 반복문을 사용해서 다음 리스트를 완성해보세요</h1>
+    <p>createElement, appendChild를 이용하세요.</p>
+
+    <ul></ul>
+
+for문 예제
+
+    <script>
+        const ul = document.querySelector("ul");
+        const arr = ["foo", "bar", "baz"];
+
+        // const foo = document.createElement("li");
+
+        // foo.textContent = "foo";
+
+        // ul.appendChild(foo);
+        
+        for (let i=0; i<arr.length; i++) {
+            const li = document.createElement("li");
+
+            li.textContent = arr[i];
+
+            ul.appendChild(li);
+        }
+
+        console.log(ul);
+    </script>
+
+while문 예제
+
+    <script>
+        const ul = document.querySelector("ul");
+        const arr = ["foo", "bar", "baz"];
+
+        let i = 0;
+
+        while (i < arr.length) {
+            const li = document.createElement("li");
+
+            li.textContent = arr[i];
+
+            ul.appendChild(li);
+            i++
+        }
+
+    </script>
+
+<!-- ---------------------------------------------------------------- -->
+
+<h1>DOM Method</h1>
+    <p>classList.add</p>
+
+    <style>
+        .border {
+            border: 1px solid;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+        const li = document.querySelectorAll("li");
+
+        console.log(ul.classList); // DOMTokenList
+        // element.classList.add(class): element의 DOMTokenList에 class를 추가한다.
+        ul.classList.add("border");
+        
+        li[0].classList.add("underline");
+
+    </script>
+
+    <style>
+        .border {
+            border: 1px solid;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+
+    <h1>DOM Method</h1>
+    <p>classList.remove</p>
+
+    <ul class="border">
+        <li class="underline">foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+        const li = document.querySelectorAll("li");
+
+        console.log(ul.classList);
+        console.log(li[0].classList);
+
+        ul.classList.remove("border"); // class 이름과 일치해야한다. 일치하지 않으면 적용 X
+        li[0].classList.remove("underline");
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

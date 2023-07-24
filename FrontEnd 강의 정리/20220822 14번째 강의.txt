@@ -1,0 +1,639 @@
+2022-08-22
+
+flex-wid = basis
+comment의 사진이 중앙으로 오는 이유 : mx-auto때문에
+-----------------------------------------------------
+Project-First Project
+------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body style="min-height: 2000px;">
+
+    <!-- NAVIGATION -->
+    <div class="fixed top-0 w-full z-10">
+        <div class="flex border-b bg-white">
+            <a href="#" class="p-2 hover:bg-green-100">MENU</a>
+            <a href="#" class="p-2 hover:bg-green-100">MENU</a>
+            <a href="#" class="p-2 hover:bg-green-100">MENU</a>
+            <a href="#" class="p-2 hover:bg-green-100">MENU</a>
+        </div>
+    </div>
+
+    <!-- MAIN IMAGE -->
+    <div class="h-96 bg-gradient-to-r from-cyan-500 to-fuchsia-500 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <h1 class="text-3xl">Heading</h1>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="bg-red-100 h-96 py-10">
+        <h1 class="text-3xl text-center mb-5">Heading</h1>
+
+        <div class="flex flex-row gap-5 max-w-3xl mx-auto">
+            <div class="flex flex-col items-center">
+                <div class="w-40 h-40 border border-black mb-3 rounded-full overflow-hidden"></div>
+                <div class="text-center">
+                    <h3 class="text-xl">Heading</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-40 h-40 border border-black mb-3 rounded-full overflow-hidden"></div>
+                <div class="text-center">
+                    <h3 class="text-xl">Heading</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-40 h-40 border border-black mb-3 rounded-full overflow-hidden"></div>
+                <div class="text-center">
+                    <h3 class="text-xl">Heading</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="py-10">
+        <h1 class="text-3xl text-center mb-5">Heading</h1>
+        <div class="max-w-3xl flex gap-4 flex-row mx-auto">
+            <div class="w-full h-64 border border-black"></div>
+            <div class="w-full h-64 border border-black"></div>
+        </div>
+    </div>
+
+    <!-- COMMENTS -->
+    <div class="bg-blue-100 py-10">
+        <div class="flex gap-5 max-w-3xl flex-row mx-auto">
+
+            <div class="w-40 h-40 border border-black shrink-0 mx-auto rounded-full overflow-hidden"></div>
+
+            <div class="flex items-center grow">
+                <div class="">
+                    <p class="">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius beatae in reprehenderit nihil corrupti consequatur quaerat, rem quibusdam quasi a, totam facere perspiciatis obcaecati similique tenetur voluptates neque ab? Tempora.
+                    </p>
+                    <p>-Doe, John</p>
+                </div>
+            </div>
+        </div>
+        
+    </div> 
+
+    <!-- CONTACT -->
+    <div class="py-10">
+        <h1 class="text-3xl text-center mb-5">Heading</h1>
+        <div class="flex gap-5 max-w-3xl mx-auto flex-row">
+
+            <div class="w-full h-64 border border-black"></div>
+
+            <div class="w-full">
+                <form action="">
+                    <div class="mb-2">
+                        <label for="name"></label>
+                        <input type="text" class="border p-2 w-full" id="name" placeholder="Name">
+                    </div>
+                    <div class="mb-2">
+                        <label for="email"></label>
+                        <input type="text" class="border p-2 w-full" id="email" placeholder="E-mail">
+                    </div>
+                    <div class="mb-2">
+                        <label for="message"></label>
+                        <textarea name="" id="message" cols="30" rows="5" class="border w-full p-2" placeholder="Message"></textarea>
+                    </div>
+                    <button type="submit" class="p-2 bg-black text-white">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="bg-pink-100 py-10">
+        <div class="max-w-3xl px-3 mx-auto">
+            <div class="flex flex-wrap w-90 border">
+                <div class="basis-1/2 p-3">
+                    <h3 class="text-xl mb-2">Heading</h3>
+                    <ul>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">Link</a></li>
+                    </ul>
+                </div>
+                <div class="basis-1/2 p-3">
+                    <h3 class="text-xl mb-2">Heading</h3>
+                    <ul>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">Link</a></li>
+                    </ul>
+                </div>
+                <div class="basis-1/2 p-3">
+                    <h3 class="text-xl mb-2">Heading</h3>
+                    <ul>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">Link</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center border-t border-black">
+                <h3 class="text-sm py-2">Footer</h3>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+----------------------------------------------------------------
+First Project(반응형 = column)
+--------------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body style="min-height: 2000px;">
+
+    <!-- NAVIGATION -->
+    <div class="fixed top-0 w-full z-10">
+        <div class="flex border-b bg-white">
+            <a href="#" class="p-2 hover:bg-green-100">MENU</a>
+            <a href="#" class="p-2 hover:bg-green-100">MENU</a>
+            <a href="#" class="p-2 hover:bg-green-100">MENU</a>
+            <a href="#" class="p-2 hover:bg-green-100">MENU</a>
+        </div>
+    </div>
+
+    <!-- MAIN IMAGE -->
+    <div class="h-96 bg-gradient-to-r from-cyan-500 to-fuchsia-500 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <h1 class="text-3xl">Heading</h1>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="bg-red-100 py-10">
+        <h1 class="text-3xl text-center mb-5">Heading</h1>
+
+        <div class="flex flex-col md:flex-row gap-5 max-w-3xl mx-auto">
+            <div class="flex flex-col items-center">
+                <div class="w-40 h-40 border border-black mb-3 rounded-full overflow-hidden"></div>
+                <div class="text-center">
+                    <h3 class="text-xl">Heading</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-40 h-40 border border-black mb-3 rounded-full overflow-hidden"></div>
+                <div class="text-center">
+                    <h3 class="text-xl">Heading</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-40 h-40 border border-black mb-3 rounded-full overflow-hidden"></div>
+                <div class="text-center">
+                    <h3 class="text-xl">Heading</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="py-10">
+        <h1 class="text-3xl text-center mb-5">Heading</h1>
+        <div class="max-w-3xl px-2 flex gap-4 flex-col md:flex-row mx-auto">
+            <div class="w-full h-64 border border-black"></div>
+            <div class="w-full h-64 border border-black"></div>
+        </div>
+    </div>
+
+    <!-- COMMENTS -->
+    <div class="bg-blue-100 py-10">
+        <div class="flex gap-5 max-w-3xl px-2 flex-col md:flex-row mx-auto">
+
+            <div class="w-40 h-40 border border-black shrink-0 mx-auto rounded-full overflow-hidden"></div>
+
+            <div class="flex items-center grow">
+                <div class="">
+                    <p class="">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius beatae in reprehenderit nihil corrupti consequatur quaerat, rem quibusdam quasi a, totam facere perspiciatis obcaecati similique tenetur voluptates neque ab? Tempora.
+                    </p>
+                    <p>-Doe, John</p>
+                </div>
+            </div>
+        </div>
+        
+    </div> 
+
+    <!-- CONTACT -->
+    <div class="py-10">
+        <h1 class="text-3xl text-center mb-5">Heading</h1>
+        <div class="flex gap-5 max-w-3xl px-2 mx-auto flex-col md:flex-row">
+
+            <div class="w-full h-64 border border-black"></div>
+
+            <div class="w-full">
+                <form action="">
+                    <div class="mb-2">
+                        <label for="name"></label>
+                        <input type="text" class="border p-2 w-full" id="name" placeholder="Name">
+                    </div>
+                    <div class="mb-2">
+                        <label for="email"></label>
+                        <input type="text" class="border p-2 w-full" id="email" placeholder="E-mail">
+                    </div>
+                    <div class="mb-2">
+                        <label for="message"></label>
+                        <textarea name="" id="message" cols="30" rows="5" class="border w-full p-2" placeholder="Message"></textarea>
+                    </div>
+                    <button type="submit" class="p-2 bg-black text-white">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="bg-pink-300 py-10">
+        <div class="max-w-3xl px-3 mx-auto">
+            <div class="flex flex-wrap w-90 border">
+                <div class="basis-full md:basis-1/2 p-3">
+                    <h3 class="text-xl mb-2">Heading</h3>
+                    <ul>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">Link</a></li>
+                    </ul>
+                </div>
+                <div class="basis-full md:basis-1/2 p-3">
+                    <h3 class="text-xl mb-2">Heading</h3>
+                    <ul>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">Link</a></li>
+                    </ul>
+                </div>
+                <div class="basis-full md:basis-1/2 p-3">
+                    <h3 class="text-xl mb-2">Heading</h3>
+                    <ul>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">Link</a></li>
+                        <li><a href="">Link</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center border-t border-black">
+                <h3 class="text-sm py-2">Footer</h3>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+-----------------------------------------------------
+Second Project (관리자 페이지)
+-----------------------------------------------------
+
+<HEADER>
+
+    <div class="flex h-12 justify-between(first item과 second item 사이에 공간을 만든다. = 수평정렬) items-center(item들을 가운데로 정렬시켜준다. = 수직정렬) bg-gray-500 px-5">
+        <h1 class="text-xl text-white">Heading</h1> - first item
+        <form action="" class="h-3/5(form의 height를 지정 -> 부모의 h, 즉 h-12의 3/5만큼을 이용한다.)"> - second item
+            <input type="text" class="w-52 h-full(form의 height를 전부 사용한다는 뜻) px-2 outline-none" placeholder="Search">
+        </form>
+    </div>
+
+      |
+      |
+      |
+     ▽
+<div class="sticky(Header를 고정시키기 위한 명령어) top-0 w-full z-10(side bar보다 위에 위치하기 위한 명령어)">
+        <div class="flex h-12 justify-between items-center bg-gray-500 px-5">
+            <h1 class="text-xl text-white">Heading</h1>
+            <form action="" class="h-3/5">
+                <input type="text" class="w-52 h-full px-2 outline-none" placeholder="Search">
+            </form>
+        </div>
+    </div>
+
+sticky를 fixed로 설정시 MAIN을 구성하려면, margin의 값을 바꿔주어야한다.
+fixed활용할 시 margin-top을 주면된다.
+sticky의 경우 -> static과 fixed가 합쳐진 경우이다. Header의 포지션이 static이 된다. 스크롤 시 fixed의 형태가 된다.
+ex)w3schools.com->javascript를 활용한 fixed : 기존에는 relative 상태였다가 스크롤 시 fixed가 된다. 
+   apple.com youtube.com
+
+<SIDE BAR>
+
+    <div class="fixed top-0 left-0 bottom-0 w-60 border-r bg-white">
+        <ul class="mt-12 pt-5 pl-5 h-full"> -> padding이 없으면 더 깔끔할 것 같다.
+            <li>
+                <a href="" class="block p-2 hover:bg-gray-300">Link</a>
+            </li>
+            <li>
+                <a href="" class="block p-2 hover:bg-gray-300">Link</a>
+            </li>
+            <li>
+                <a href="" class="block p-2 hover:bg-gray-300">Link</a>
+            </li>
+            <li>
+                <a href="" class="block p-2 hover:bg-gray-300">Link</a>
+            </li>
+        </ul>
+    </div>
+
+<MAIN>
+
+-side bar를 설정하고 다른 내용을 추가할 시에는 margin의 설정이 중요하다.
+
+    <div class="max-w-5xl ml-60 pt-5 px-5" style="min-height: 1000px;">
+
+        <div class="bg-orange-100 border-l-4(경계선의 왼쪽만을 나타내게 하며, 굵기를 설정한 것이다.) border-orange-500 text-orange-700 p-4 mb-5">
+            <p class="font-bold">Be Warned</p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit magnam architecto recusandae id aliquam iure ullam molestiae suscipit maxime, ab voluptatibus quidem sit ratione voluptas dignissimos nisi facere debitis sint?
+            </p>
+        </div>
+
+        <div class="mb-5">
+            <h1 class="text-3xl">DashBoard</h1>
+        </div>
+
+        <div class="mb-3 flex justify-end">
+            <div class="relative">
+                <button class="border p-2 bg-gray-600 text-white hover:bg-gray-700">Dropdown</button>
+                <div class="absolute right-0 w-48 bg-white shadow">
+                    <a href="" class="block p-2 hover:bg-gray-300">Menu</a>
+                    <a href="" class="block p-2 hover:bg-gray-300">Menu</a>
+                    <a href="" class="block p-2 hover:bg-gray-300">Menu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      |
+      |
+      |
+     ▽
+**dropdown 마우스를 가져다 댔을 시에 menu들이 보이게 하는 방법**
+
+        <div class="mb-3 flex justify-end">
+            <div class="relative group">
+                <button class="border p-2 bg-gray-600 text-white hover:bg-gray-700">Dropdown</button>
+                <div class="absolute right-0 w-48 bg-white shadow hidden group-hover:block">
+                    <a href="" class="block p-2 hover:bg-gray-300">Menu</a>
+                    <a href="" class="block p-2 hover:bg-gray-300">Menu</a>
+                    <a href="" class="block p-2 hover:bg-gray-300">Menu</a>
+                </div>
+            </div>
+
+group과 hidden, hover:block을 이용한다.
+
+**MAIN의 grid 이용**
+
+grid 사용의 예 : 이케아 홈페이지
+
+grid는 display-block이다.
+
+        <div class="grid grid-cols-3 gap-4 h-96(24rem)">
+            <div class="row-span-2(column의 2개를 차지: 행병합) col-span-2(column의 2개를 차지한다는 것: 열병합) border border-black">1</div>
+            <div class="border border-black">2</div>
+            <div class="border border-black">3</div>
+        </div>
+
+**MAIN의 table 사용**
+
+        <div class="mt-5 mb-5">
+            <h1 class="text-xl">Table</h1>
+        </div>
+
+        <div class="mb-5"> <-main의 넓이를 다 가졌기에 954이다.
+            <table class="table-fixed" style="width: 900px;"> -> 넓이가 900이기에 스크롤이 생기지 않는다.
+                <thead class="border-b border-black">
+                    <tr class="text-left">
+                        <th scope="col">#</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b">
+                        <td scope="row" class="font-bold">1</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                </tbody>
+            </table>
+
+      |
+      |
+      |
+     ▽
+
+        <div class="mt-5 mb-5">
+            <h1 class="text-xl">Table</h1>
+        </div>
+
+        <div class="mb-5 overflow-x-auto(table 자체에 scroll을 주는 방법)">
+            <table class="table-fixed" style="width: 900px;">
+                <thead class="border-b border-black">
+                    <tr class="text-left">
+                        <th scope="col">#</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b">
+                        <td scope="row" class="font-bold">1</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+
+------------------------------------------------------
+Second Project(반응형)
+------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<!-- ex:관리자 페이지 -->
+<body style="min-height: 1000px;">
+    <!-- HEADER -->
+    <div class="sticky top-0 w-full z-10">
+        <div class="flex h-12 justify-between items-center bg-gray-500 px-5">
+            <h1 class="text-xl text-white">Heading</h1>
+            <form action="" class="h-3/5">
+                <input type="text" class="w-52 h-full px-2 outline-none" placeholder="Search">
+            </form>
+        </div>
+    </div>
+    
+    <!-- SIDE BAR -->
+    <div class="fixed top-0 left-0 bottom-0 w-60 border-r bg-white hidden lg:block(창이 줄어들 시=lg:ml-60 Sidebar가 없어진다.)">
+        <ul class="mt-12 pt-5 pl-5 h-full">
+            <li>
+                <a href="" class="block p-2 hover:bg-gray-300">Link</a>
+            </li>
+            <li>
+                <a href="" class="block p-2 hover:bg-gray-300">Link</a>
+            </li>
+            <li>
+                <a href="" class="block p-2 hover:bg-gray-300">Link</a>
+            </li>
+            <li>
+                <a href="" class="block p-2 hover:bg-gray-300">Link</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- MAIN -->
+    <div class="max-w-5xl lg:ml-60 pt-5 px-5" style="min-height: 1000px;">
+
+        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 mb-5">
+            <p class="font-bold">Be Warned</p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit magnam architecto recusandae id aliquam iure ullam molestiae suscipit maxime, ab voluptatibus quidem sit ratione voluptas dignissimos nisi facere debitis sint?
+            </p>
+        </div>
+
+        <div class="mb-5">
+            <h1 class="text-3xl">DashBoard</h1>
+        </div>
+
+        <div class="mb-3 flex justify-end">
+            <div class="relative group">
+                <button class="border p-2 bg-gray-600 text-white hover:bg-gray-700">Dropdown</button>
+                <div class="absolute right-0 w-48 bg-white shadow hidden group-hover:block">
+                    <a href="" class="block p-2 hover:bg-gray-300">Menu</a>
+                    <a href="" class="block p-2 hover:bg-gray-300">Menu</a>
+                    <a href="" class="block p-2 hover:bg-gray-300">Menu</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3(창이 줄어들 시 열이 3개로 된다.) gap-4 h-96">
+            <div class="row-span-2 col-span-2 border border-black">1</div>
+            <div class="border border-black">2</div>
+            <div class="border border-black">3</div>
+        </div>
+
+        <div class="mt-5 mb-5">
+            <h1 class="text-xl">Table</h1>
+        </div>
+
+        <div class="mb-5 overflow-x-auto">
+            <table class="table-fixed" style="width: 900px;">
+                <thead class="border-b border-black">
+                    <tr class="text-left">
+                        <th scope="col">#</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                        <th scope="col">Heading</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b">
+                        <td scope="row" class="font-bold">1</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr class="border-b">
+                        <td scope="row" class="font-bold">2</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr class="border-b">
+                        <td scope="row" class="font-bold">3</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr class="border-b">
+                        <td scope="row" class="font-bold">4</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
